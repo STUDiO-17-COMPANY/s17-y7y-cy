@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status | In Development</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dnxoz9alm/image/upload/v1766746441/Logo_Studio17_32x32_swwwtl.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#111111',
+                            accent: '#0055FF', // Electric Blue
+                            gray: '#888888',
+                            success: '#00FF66',
+                        }
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            cursor: none;
+            overflow: hidden; /* No scroll for this single page */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #0055FF; }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        body:hover .cursor-outline { opacity: 1; }
+        
+        /* Grid & Noise */
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
+            position: absolute; inset: 0; z-index: 0; opacity: 0.05;
+        }
+        
+        /* Scanline Effect */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0, 85, 255, 0.1) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
+
+        .hoverable { cursor: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+    <div class="bg-grid bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBoNDBWMEgwIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMWg0MG0tMSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==')]"></div>
+    <div class="scanline"></div>
+
+    <!-- MAIN CONTENT CENTERED -->
+    <main class="flex-1 flex flex-col items-center justify-center relative z-20 px-4 text-center">
+        
+        <!-- Status Indicator -->
+        <div class="inline-flex items-center gap-3 px-4 py-2 border border-brand-accent/30 bg-brand-accent/5 rounded-full mb-8 animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+            <span class="font-mono text-[10px] text-brand-accent tracking-[0.2em] uppercase">System_Build_In_Progress</span>
+        </div>
+
+        <!-- Client Name Placeholder -->
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
+            [ CLIENT NAME ]
+        </h1>
+        
+        <p class="font-mono text-brand-gray text-xs md:text-sm max-w-md mx-auto mb-12">
+            This digital infrastructure is currently compiling.
+            <br>Please wait for full initialization.
+        </p>
+
+        <!-- Fake Progress Bar -->
+        <div class="w-full max-w-xs h-1 bg-white/10 rounded-full overflow-hidden mb-4">
+            <div id="progress-bar" class="h-full bg-brand-accent w-[0%]"></div>
+        </div>
+        <div class="font-mono text-[10px] text-brand-gray flex justify-between w-full max-w-xs">
+            <span>LOADING_ASSETS...</span>
+            <span id="progress-text">0%</span>
+        </div>
+
+    </main>
+
+    <!-- FOOTER: DEVELOPED BY STUDIO 17 -->
+    <footer class="relative z-20 w-full py-8 border-t border-white/5 bg-black/50 backdrop-blur-sm">
+        <div class="container mx-auto flex flex-col items-center justify-center gap-4">
+            <div class="font-mono text-[10px] text-brand-gray uppercase tracking-widest">
+                Digital Architecture & Design by
+            </div>
+            
+            <a href="index.html" class="group flex items-center gap-3 hoverable transition-opacity hover:opacity-100 opacity-70">
+                <!-- Logo Image -->
+                <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1766746441/Logo_Studio17_32x32_swwwtl.png" 
+                     alt="STUDiO 17 Logo" 
+                     class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-all group-hover:scale-110">
+                
+                <!-- Logo Text -->
+                <div class="text-left">
+                    <div class="font-sans font-bold text-lg leading-none tracking-tight text-white group-hover:text-brand-accent transition-colors">
+                        <span class="italic">STU</span>DiO 17
+                    </div>
+                    <div class="font-mono text-[8px] text-brand-gray leading-none mt-1">
+                        SYSTEMS_ONLINE
+                    </div>
+                </div>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Progress Bar Animation Simulation
+        const bar = document.getElementById('progress-bar');
+        const text = document.getElementById('progress-text');
+        
+        // Simulates loading to a random percentage then hanging (realistic for dev mode)
+        let width = 0;
+        const target = 78; // Stalls at 78% because it's "under development"
+        
+        function animateProgress() {
+            if (width >= target) return;
+            width += (Math.random() * 2);
+            if (width > target) width = target;
+            
+            bar.style.width = width + '%';
+            text.innerText = Math.floor(width) + '%';
+            
+            setTimeout(animateProgress, Math.random() * 200);
+        }
+        
+        setTimeout(animateProgress, 500);
+
+        // Custom Cursor Logic
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorOutline = document.querySelector(".cursor-outline");
+        const hoverables = document.querySelectorAll(".hoverable");
+
+        window.addEventListener("mousemove", (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+        });
+
+        document.body.addEventListener('mouseover', (e) => {
+            if (e.target.closest('.hoverable')) {
+                cursorOutline.style.width = "80px";
+                cursorOutline.style.height = "80px";
+                cursorOutline.style.backgroundColor = "rgba(0, 85, 255, 0.1)"; // Brand accent tint
+                cursorOutline.style.borderColor = "transparent";
+            } else {
+                cursorOutline.style.width = "40px";
+                cursorOutline.style.height = "40px";
+                cursorOutline.style.backgroundColor = "transparent";
+                cursorOutline.style.borderColor = "rgba(255, 255, 255, 0.5)";
+            }
+        });
+    </script>
+</body>
+</html>
