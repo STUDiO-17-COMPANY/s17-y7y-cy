@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -156,6 +156,15 @@
     <!-- Custom Cursor -->
     <div class="cursor-dot hidden md:block"></div>
 
+    <!-- Mobile Sticky Button -->
+    <div
+        class="fixed bottom-0 left-0 w-full z-40 md:hidden p-4 bg-gradient-to-t from-[#F5F5F0] via-[#F5F5F0]/90 to-transparent pointer-events-none">
+        <a href="#book"
+            class="mobile-cta pointer-events-auto block w-full bg-phos-black text-white text-center py-4 rounded-full font-sans text-sm uppercase tracking-widest shadow-xl hover:bg-phos-gold transition-colors transform translate-y-20 opacity-0">
+            Book Exam
+        </a>
+    </div>
+
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference text-phos-black md:text-white transition-colors duration-300"
         id="navbar">
@@ -184,37 +193,44 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-4">
+        <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-6">
             <div class="absolute inset-0 z-0">
+                <!-- Background Image -->
                 <div
                     class="w-full h-full bg-[url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center opacity-90 scale-110 hero-bg">
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#F5F5F0]/20 to-[#F5F5F0]"></div>
+                <!-- Enhanced Gradient for better text contrast -->
+                <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-[#F5F5F0]/30 to-[#F5F5F0]"></div>
             </div>
 
-            <div class="relative z-10 text-center max-w-5xl mx-auto">
-                <p class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 opacity-0 hero-fade">Limassol •
-                    Cyprus</p>
+            <div class="relative z-10 text-center max-w-6xl mx-auto mt-10 md:mt-0">
+                <p
+                    class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 opacity-0 hero-fade text-phos-charcoal font-medium">
+                    Limassol • Cyprus</p>
+
+                <!-- Main Title with Fixed Animation Logic -->
                 <h1
-                    class="font-serif text-5xl md:text-8xl lg:text-9xl leading-[0.9] text-phos-black mb-8 overflow-hidden">
+                    class="font-serif text-[3.5rem] leading-[1.1] md:text-8xl lg:text-9xl md:leading-[0.9] text-phos-black mb-8 overflow-hidden">
                     <div class="overflow-hidden"><span class="block translate-y-full hero-text">Clarity in</span></div>
                     <div class="overflow-hidden"><span class="block translate-y-full hero-text italic">Every
                             Detail.</span></div>
                 </h1>
+
                 <p
-                    class="font-sans text-phos-charcoal max-w-lg mx-auto leading-relaxed opacity-0 hero-fade mb-10 text-lg">
+                    class="font-sans text-phos-charcoal/90 max-w-lg mx-auto leading-relaxed opacity-0 hero-fade mb-10 text-base md:text-lg font-medium">
                     Where the precision of clinical optometry meets the art of luxury eyewear. Experience vision care,
                     elevated.
                 </p>
 
                 <!-- Hero Actions -->
-                <div class="flex flex-col md:flex-row gap-4 justify-center items-center opacity-0 hero-fade">
+                <div
+                    class="flex flex-col md:flex-row gap-4 justify-center items-center opacity-0 hero-fade w-full md:w-auto">
                     <a href="#book"
-                        class="bg-phos-black text-white px-8 py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-gold hover:shadow-lg transition-all duration-300 hover-trigger w-full md:w-auto">
+                        class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-gold hover:shadow-lg transition-all duration-300 hover-trigger w-full md:w-auto shadow-md">
                         Book Examination
                     </a>
                     <a href="#journal"
-                        class="group flex items-center gap-2 border border-phos-black/30 px-8 py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-white transition-all duration-300 hover-trigger w-full md:w-auto justify-center">
+                        class="group flex items-center justify-center gap-2 border border-phos-black/80 px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-transparent hover:shadow-md transition-all duration-300 hover-trigger w-full md:w-auto backdrop-blur-sm">
                         The Journal <i class="ph ph-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
                     </a>
                 </div>
@@ -688,7 +704,7 @@
         // 2. GSAP Register
         gsap.registerPlugin(ScrollTrigger);
 
-        // 3. Loader Animation
+        // 3. Loader Animation & Hero Reveal
         const loaderTimeline = gsap.timeline();
 
         loaderTimeline.to('.loader-text', {
@@ -708,8 +724,8 @@
                 duration: 1,
                 ease: "power2.inOut",
             }, "-=0.2")
-            .from('.hero-text', {
-                y: "100%",
+            .to('.hero-text', {  // Changed from .from to .to
+                y: 0,            // Animate to y: 0 (original position)
                 duration: 1.5,
                 stagger: 0.2,
                 ease: "power4.out"
@@ -723,7 +739,14 @@
                 scale: 1.4,
                 duration: 2,
                 ease: "power2.out"
-            }, 0);
+            }, 0)
+            // Animate the mobile Sticky Button IN after load
+            .to('.mobile-cta', {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.5");
 
         // 4. Hero Parallax
         gsap.to('.hero-bg', {
