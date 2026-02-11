@@ -141,6 +141,16 @@
             justify-content: center;
             align-items: center;
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            clip-path: inset(0 0 100% 0);
+            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mobile-menu-open .mobile-menu-overlay {
+            clip-path: inset(0 0 0 0);
+        }
     </style>
 </head>
 
@@ -165,10 +175,32 @@
         </a>
     </div>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#F5F5F0] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6">
+        <button id="close-menu" class="absolute top-6 right-6 p-2 hover:opacity-50 transition-opacity">
+            <i class="ph ph-x text-3xl text-phos-black"></i>
+        </button>
+        <div class="flex flex-col gap-8 text-center">
+            <a href="#clinical"
+                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Clinical</a>
+            <a href="#services"
+                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Services</a>
+            <a href="#journal"
+                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Journal</a>
+            <a href="#reviews"
+                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Reviews</a>
+            <a href="#book"
+                class="mobile-link font-sans text-sm uppercase tracking-widest bg-phos-black text-white px-8 py-4 rounded-full mt-4">Book
+                Exam</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference text-phos-black md:text-white transition-colors duration-300"
+    <!-- Removed mix-blend-difference and forced text-phos-black for clear logo visibility -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center text-phos-black transition-colors duration-300"
         id="navbar">
-        <a href="#" class="hover-trigger block">
+        <a href="#" class="hover-trigger block z-50">
             <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
                 alt="Phós Optics Logo" class="h-8 md:h-10 w-auto">
         </a>
@@ -182,12 +214,13 @@
         </div>
 
         <a href="#book"
-            class="hidden md:block border border-current px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all hover-trigger">
+            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white transition-all hover-trigger">
             Book Exam
         </a>
 
-        <button class="md:hidden hover-trigger">
-            <i class="ph ph-list text-2xl"></i>
+        <!-- Mobile Menu Trigger -->
+        <button id="open-menu" class="md:hidden hover-trigger p-2 z-50">
+            <i class="ph ph-list text-2xl text-phos-black"></i>
         </button>
     </nav>
 
@@ -200,7 +233,7 @@
                     class="w-full h-full bg-[url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center opacity-90 scale-110 hero-bg">
                 </div>
                 <!-- Enhanced Gradient for better text contrast -->
-                <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-[#F5F5F0]/30 to-[#F5F5F0]"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-[#F5F5F0]/30 to-[#F5F5F0]"></div>
             </div>
 
             <div class="relative z-10 text-center max-w-6xl mx-auto mt-10 md:mt-0">
@@ -724,8 +757,8 @@
                 duration: 1,
                 ease: "power2.inOut",
             }, "-=0.2")
-            .to('.hero-text', {  // Changed from .from to .to
-                y: 0,            // Animate to y: 0 (original position)
+            .to('.hero-text', {
+                y: 0,
                 duration: 1.5,
                 stagger: 0.2,
                 ease: "power4.out"
@@ -740,7 +773,6 @@
                 duration: 2,
                 ease: "power2.out"
             }, 0)
-            // Animate the mobile Sticky Button IN after load
             .to('.mobile-cta', {
                 y: 0,
                 opacity: 1,
@@ -809,15 +841,32 @@
                 const nav = document.getElementById('navbar');
                 if (self.direction === 1 && self.progress > 0.1) {
                     nav.classList.add('backdrop-blur-md', 'shadow-sm', '!text-phos-black');
-                    nav.classList.remove('mix-blend-difference');
+                    // Removed mix-blend logic here as we want consistent color
                 } else if (self.progress < 0.1) {
                     nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm', '!text-phos-black');
-                    nav.classList.add('mix-blend-difference');
+                    // Removed adding mix-blend back
                 }
             }
         });
 
-        // 8. Custom Cursor Logic
+        // 8. Mobile Menu Logic (ADDED)
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            document.body.classList.toggle('mobile-menu-open');
+        }
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 9. Custom Cursor Logic
         const cursor = document.querySelector('.cursor-dot');
         const hoverTriggers = document.querySelectorAll('.hover-trigger');
 
