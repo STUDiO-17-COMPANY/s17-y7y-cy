@@ -9,8 +9,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Replacing Playfair with Outfit to match the Brand Guide's "Roc Grotesk" geometric vibe -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -29,14 +30,16 @@
             theme: {
                 extend: {
                     colors: {
-                        'phos-black': '#0a0a0a',
+                        'phos-black': '#000000', // Brand Guide: Strict Black
                         'phos-charcoal': '#1c1c1c',
-                        'phos-cream': '#F5F5F0',
-                        'phos-gold': '#C5A059',
+                        'phos-cream': '#F6F6F3', // Brand Guide: Bone-White
+                        'phos-sage': '#989E85',  // Brand Guide: Grey-Yellow Green (Replaces Gold)
+                        'phos-blue': '#5588A3',  // Brand Guide: Seasonal Blue
+                        'phos-red': '#94111C',   // Brand Guide: Seasonal Red
                     },
                     fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Manrope', 'sans-serif'], // Body copy
+                        display: ['Outfit', 'sans-serif'], // Headings (Geometric/Modern)
                     },
                     height: {
                         'screen-120': '120vh',
@@ -49,16 +52,17 @@
     <style>
         /* Base Reset & Smoothness */
         body {
-            background-color: #F5F5F0;
-            color: #0a0a0a;
+            background-color: #F6F6F3;
+            color: #000000;
             overflow-x: hidden;
             cursor: default;
         }
 
         /* Text Selection */
         ::selection {
-            background: #0a0a0a;
-            color: #F5F5F0;
+            background: #989E85;
+            /* Phos Sage */
+            color: #ffffff;
         }
 
         /* Utility: Hide Scrollbar but allow scroll */
@@ -92,24 +96,11 @@
             will-change: transform;
         }
 
-        /* Text Mask Logic */
-        .char-mask {
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .char-mask span {
-            display: inline-block;
-            transform: translateY(100%);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
         /* Custom Cursor Follower */
         .cursor-dot {
             width: 12px;
             height: 12px;
-            background-color: #0a0a0a;
+            background-color: #000000;
             border-radius: 50%;
             position: fixed;
             top: 0;
@@ -117,15 +108,16 @@
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 9999;
-            transition: width 0.3s, height 0.3s;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
         }
 
         .hover-active .cursor-dot {
             width: 40px;
             height: 40px;
             background-color: transparent;
-            border: 1px solid #0a0a0a;
-            backdrop-filter: invert(1);
+            border: 1px solid #989E85;
+            /* Sage border on hover */
+            backdrop-filter: invert(0);
         }
 
         /* Loader */
@@ -135,7 +127,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #F5F5F0;
+            background: #F6F6F3;
             z-index: 10000;
             display: flex;
             justify-content: center;
@@ -151,14 +143,19 @@
         .mobile-menu-open .mobile-menu-overlay {
             clip-path: inset(0 0 0 0);
         }
+
+        /* Typography adjustments for "Wide" look */
+        .font-wide {
+            letter-spacing: -0.02em;
+        }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased font-sans">
 
     <!-- Loader -->
     <div class="loader">
-        <div class="font-serif text-3xl italic text-phos-black overflow-hidden">
+        <div class="font-display text-3xl font-light text-phos-black overflow-hidden uppercase tracking-widest">
             <span class="loader-text block transform translate-y-full">Phós Optics</span>
         </div>
     </div>
@@ -168,28 +165,30 @@
 
     <!-- Mobile Sticky Button -->
     <div
-        class="fixed bottom-0 left-0 w-full z-40 md:hidden p-4 bg-gradient-to-t from-[#F5F5F0] via-[#F5F5F0]/90 to-transparent pointer-events-none">
+        class="fixed bottom-0 left-0 w-full z-40 md:hidden p-4 bg-gradient-to-t from-[#F6F6F3] via-[#F6F6F3]/90 to-transparent pointer-events-none">
         <a href="#book"
-            class="mobile-cta pointer-events-auto block w-full bg-phos-black text-white text-center py-4 rounded-full font-sans text-sm uppercase tracking-widest shadow-xl hover:bg-phos-gold transition-colors transform translate-y-20 opacity-0">
+            class="mobile-cta pointer-events-auto block w-full bg-phos-black text-white text-center py-4 rounded-full font-display text-sm uppercase tracking-widest shadow-xl hover:bg-phos-sage transition-colors transform translate-y-20 opacity-0">
             Book Exam
         </a>
     </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-[#F5F5F0] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6">
-        <button id="close-menu" class="absolute top-6 right-6 p-2 hover:opacity-50 transition-opacity">
-            <i class="ph ph-x text-3xl text-phos-black"></i>
+        class="fixed inset-0 bg-[#F6F6F3] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6">
+        <!-- Close button updated with larger touch target (w-16 h-16) -->
+        <button id="close-menu"
+            class="absolute top-4 right-4 w-16 h-16 flex items-center justify-center hover:opacity-50 transition-opacity z-50 rounded-full active:bg-gray-100">
+            <i class="ph ph-x text-4xl text-phos-black"></i>
         </button>
         <div class="flex flex-col gap-8 text-center">
             <a href="#clinical"
-                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Clinical</a>
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Clinical</a>
             <a href="#services"
-                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Services</a>
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Services</a>
             <a href="#journal"
-                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Journal</a>
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Journal</a>
             <a href="#reviews"
-                class="mobile-link font-serif text-4xl text-phos-black hover:text-phos-gold transition-colors">Reviews</a>
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Reviews</a>
             <a href="#book"
                 class="mobile-link font-sans text-sm uppercase tracking-widest bg-phos-black text-white px-8 py-4 rounded-full mt-4">Book
                 Exam</a>
@@ -197,7 +196,6 @@
     </div>
 
     <!-- Navigation -->
-    <!-- Removed mix-blend-difference and forced text-phos-black for clear logo visibility -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center text-phos-black transition-colors duration-300"
         id="navbar">
         <a href="#" class="hover-trigger block z-50">
@@ -205,61 +203,63 @@
                 alt="Phós Optics Logo" class="h-8 md:h-10 w-auto">
         </a>
 
-        <div class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase items-center">
-            <a href="#clinical" class="hover:opacity-60 transition-opacity hover-trigger">Clinical</a>
-            <a href="#services" class="hover:opacity-60 transition-opacity hover-trigger">Services</a>
-            <a href="#journal" class="hover:opacity-60 transition-opacity hover-trigger">Journal</a>
-            <a href="#reviews" class="hover:opacity-60 transition-opacity hover-trigger">Reviews</a>
-            <a href="#philosophy" class="hover:opacity-60 transition-opacity hover-trigger">Philosophy</a>
+        <div
+            class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
+            <a href="#clinical" class="hover:text-phos-sage transition-colors hover-trigger">Clinical</a>
+            <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger">Services</a>
+            <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger">Journal</a>
+            <a href="#reviews" class="hover:text-phos-sage transition-colors hover-trigger">Reviews</a>
+            <a href="#philosophy" class="hover:text-phos-sage transition-colors hover-trigger">Philosophy</a>
         </div>
 
         <a href="#book"
-            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white transition-all hover-trigger">
+            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
             Book Exam
         </a>
 
         <!-- Mobile Menu Trigger -->
-        <button id="open-menu" class="md:hidden hover-trigger p-2 z-50">
+        <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50">
             <i class="ph ph-list text-2xl text-phos-black"></i>
         </button>
     </nav>
 
     <main>
         <!-- HERO SECTION -->
+        <!-- Updated to align with "Nature/Light" inspiration from Brand Guide -->
         <section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-6">
             <div class="absolute inset-0 z-0">
-                <!-- Background Image -->
+                <!-- Switched to a cleaner, light-focused image to match "Phós" meaning -->
                 <div
-                    class="w-full h-full bg-[url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center opacity-90 scale-110 hero-bg">
+                    class="w-full h-full bg-[url('https://images.unsplash.com/photo-1506543730435-e2c1d455b510?q=80&w=2800&auto=format&fit=crop')] bg-cover bg-center opacity-90 scale-110 hero-bg">
                 </div>
-                <!-- Enhanced Gradient for better text contrast -->
-                <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-[#F5F5F0]/30 to-[#F5F5F0]"></div>
+                <!-- Gradient adapted to Bone White -->
+                <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-[#F6F6F3]/30 to-[#F6F6F3]"></div>
             </div>
 
             <div class="relative z-10 text-center max-w-6xl mx-auto mt-10 md:mt-0">
                 <p
-                    class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 opacity-0 hero-fade text-phos-charcoal font-medium">
+                    class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-6 opacity-0 hero-fade text-phos-sage font-semibold">
                     Limassol • Cyprus</p>
 
-                <!-- Main Title with Fixed Animation Logic -->
+                <!-- Main Title: Changed to Outfit (Geometric Sans) -->
                 <h1
-                    class="font-serif text-[3.5rem] leading-[1.1] md:text-8xl lg:text-9xl md:leading-[0.9] text-phos-black mb-8 overflow-hidden">
+                    class="font-display font-light text-[3.5rem] leading-[1.05] md:text-8xl lg:text-9xl md:leading-[0.95] text-phos-black mb-8 overflow-hidden font-wide">
                     <div class="overflow-hidden"><span class="block translate-y-full hero-text">Clarity in</span></div>
-                    <div class="overflow-hidden"><span class="block translate-y-full hero-text italic">Every
-                            Detail.</span></div>
+                    <div class="overflow-hidden"><span class="block translate-y-full hero-text">Every Detail.</span>
+                    </div>
                 </h1>
 
                 <p
-                    class="font-sans text-phos-charcoal/90 max-w-lg mx-auto leading-relaxed opacity-0 hero-fade mb-10 text-base md:text-lg font-medium">
-                    Where the precision of clinical optometry meets the art of luxury eyewear. Experience vision care,
-                    elevated.
+                    class="font-sans text-phos-charcoal/80 max-w-lg mx-auto leading-relaxed opacity-0 hero-fade mb-10 text-base md:text-lg">
+                    Combining the science of Optometry with Luxury. Phós Optics provides vision care that is
+                    contemporary, considered, and always on trend.
                 </p>
 
                 <!-- Hero Actions -->
                 <div
                     class="flex flex-col md:flex-row gap-4 justify-center items-center opacity-0 hero-fade w-full md:w-auto">
                     <a href="#book"
-                        class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-gold hover:shadow-lg transition-all duration-300 hover-trigger w-full md:w-auto shadow-md">
+                        class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage hover:shadow-lg transition-all duration-300 hover-trigger w-full md:w-auto shadow-md">
                         Book Examination
                     </a>
                     <a href="#journal"
@@ -278,11 +278,9 @@
 
             <!-- Bottom Right Brand Ticker -->
             <div class="absolute bottom-10 right-10 hidden md:block text-right opacity-0 hero-fade">
-                <span
-                    class="block font-sans text-[10px] uppercase tracking-widest text-phos-charcoal/50 mb-1">Authorized
-                    Retailer</span>
-                <p class="font-serif italic text-lg text-phos-black">Cartier &nbsp;/&nbsp; Dita &nbsp;/&nbsp; Lindberg
-                    &nbsp;/&nbsp; Mykita</p>
+                <span class="block font-sans text-[10px] uppercase tracking-widest text-phos-sage mb-1">Brand Mix</span>
+                <p class="font-display font-light text-lg text-phos-black">Cartier &nbsp;/&nbsp; Dita &nbsp;/&nbsp;
+                    Lindberg &nbsp;/&nbsp; Mykita</p>
             </div>
         </section>
 
@@ -298,52 +296,51 @@
 
                 <div class="order-1 md:order-2 space-y-8">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-[1px] bg-phos-gold"></div>
-                        <span class="font-sans text-xs uppercase tracking-widest text-phos-gold">Clinical
+                        <div class="w-12 h-[1px] bg-phos-sage"></div>
+                        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage">Clinical
                             Precision</span>
                     </div>
 
-                    <h2 class="font-serif text-4xl md:text-6xl text-phos-black leading-tight split-type">
-                        The Science of <br> <span class="italic">Perfect Vision.</span>
+                    <h2 class="font-display font-light text-4xl md:text-6xl text-phos-black leading-tight split-type">
+                        The Science of <br> Perfect Vision.
                     </h2>
 
                     <p class="font-sans text-phos-charcoal/80 leading-relaxed text-lg max-w-md">
                         We don't just check your eyes; we analyze your vision. Using state-of-the-art diagnostic
-                        technology, our comprehensive eye exams detect the slightest irregularities, ensuring your
-                        prescription is as precise as it is comfortable.
+                        technology, our comprehensive eye exams detect the slightest irregularities.
                     </p>
 
                     <ul class="space-y-4 font-sans text-sm text-phos-black pt-4">
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-check-circle text-lg text-phos-gold"></i> Retina Photography
+                            <i class="ph ph-check-circle text-lg text-phos-sage"></i> Retina Photography
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-check-circle text-lg text-phos-gold"></i> Glaucoma Screening
+                            <i class="ph ph-check-circle text-lg text-phos-sage"></i> Glaucoma Screening
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-check-circle text-lg text-phos-gold"></i> Dry Eye Management
+                            <i class="ph ph-check-circle text-lg text-phos-sage"></i> Dry Eye Management
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="py-24 px-6 md:px-12 bg-[#F5F5F0]">
+        <!-- SERVICES SECTION (Updated list based on PDF) -->
+        <section id="services" class="py-24 px-6 md:px-12 bg-[#F6F6F3]">
             <div class="container mx-auto">
                 <div
                     class="mb-16 border-b border-gray-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>
-                        <span class="font-sans text-xs uppercase tracking-widest text-phos-gold block mb-3">Our
-                            Expertise</span>
-                        <h2 class="font-serif text-4xl md:text-5xl text-phos-black split-type">Comprehensive <span
-                                class="italic">Vision Services</span></h2>
+                        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">Our
+                            Services</span>
+                        <h2 class="font-display font-light text-4xl md:text-5xl text-phos-black split-type">Vision Care
+                            & <br>Eyewear</h2>
                     </div>
                     <div class="flex flex-col md:items-end gap-4">
-                        <p class="font-sans text-sm text-gray-500 max-w-sm text-right hidden md:block">Providing
-                            advanced optical solutions tailored to your lifestyle.</p>
+                        <p class="font-sans text-sm text-gray-500 max-w-sm text-right hidden md:block">Refined
+                            inclusivity. Precision meets care.</p>
                         <a href="#book"
-                            class="bg-phos-black text-white px-6 py-3 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-gold transition-colors duration-300 hover-trigger shadow-md hover:shadow-lg">
+                            class="bg-phos-black text-white px-6 py-3 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-sage transition-colors duration-300 hover-trigger shadow-md hover:shadow-lg">
                             Book Examination
                         </a>
                     </div>
@@ -354,22 +351,21 @@
                     <div
                         class="group hover-trigger p-6 -ml-6 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300">
                         <div
-                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-gold group-hover:text-phos-gold transition-colors shadow-sm">
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-sage group-hover:text-phos-sage transition-colors shadow-sm">
                             <i
-                                class="ph ph-eye text-2xl text-phos-black group-hover:text-phos-gold transition-colors"></i>
+                                class="ph ph-eye text-2xl text-phos-black group-hover:text-phos-sage transition-colors"></i>
                         </div>
-                        <h3 class="font-serif text-2xl mb-4 text-phos-black">Refractive Eye Exams</h3>
+                        <h3 class="font-display text-2xl mb-4 text-phos-black">Eye Examination</h3>
                         <p class="font-sans text-sm text-gray-500 leading-relaxed mb-6">
-                            Do you need glasses? We determine your exact prescription with clinical accuracy. We assess
-                            visual acuity and binocular function to ensure your vision is sharp and comfortable for
-                            daily life.
+                            Comprehensive assessment of visual acuity and eye health using advanced diagnostics for
+                            every age.
                         </p>
                         <ul class="font-sans text-xs text-phos-charcoal space-y-2 uppercase tracking-wide">
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Myopia Control
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Clinical Precision
                             </li>
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Astigmatism Correction
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Vision Care
                             </li>
                         </ul>
                     </div>
@@ -378,22 +374,21 @@
                     <div
                         class="group hover-trigger p-6 -ml-6 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300">
                         <div
-                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-gold group-hover:text-phos-gold transition-colors shadow-sm">
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-sage group-hover:text-phos-sage transition-colors shadow-sm">
                             <i
-                                class="ph ph-spectacles text-2xl text-phos-black group-hover:text-phos-gold transition-colors"></i>
+                                class="ph ph-spectacles text-2xl text-phos-black group-hover:text-phos-sage transition-colors"></i>
                         </div>
-                        <h3 class="font-serif text-2xl mb-4 text-phos-black">Premium Lens Technology</h3>
+                        <h3 class="font-display text-2xl mb-4 text-phos-black">Optical Frames & Lenses</h3>
                         <p class="font-sans text-sm text-gray-500 leading-relaxed mb-6">
-                            We partner with the world's leading optical labs to offer new-generation lenses. From
-                            high-index materials for thinner profiles to advanced coatings that protect against blue
-                            light and glare.
+                            Curated with intention. Contemporary prescription glasses and sunglasses fitted with premium
+                            lenses.
                         </p>
                         <ul class="font-sans text-xs text-phos-charcoal space-y-2 uppercase tracking-wide">
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Varilux / Progressive Lenses
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Luxury Brands
                             </li>
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Blue Light Filters
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Prescription Sun
                             </li>
                         </ul>
                     </div>
@@ -402,22 +397,21 @@
                     <div
                         class="group hover-trigger p-6 -ml-6 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300">
                         <div
-                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-gold group-hover:text-phos-gold transition-colors shadow-sm">
+                            class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-sage group-hover:text-phos-sage transition-colors shadow-sm">
                             <i
-                                class="ph ph-sliders-horizontal text-2xl text-phos-black group-hover:text-phos-gold transition-colors"></i>
+                                class="ph ph-circles-three-plus text-2xl text-phos-black group-hover:text-phos-sage transition-colors"></i>
                         </div>
-                        <h3 class="font-serif text-2xl mb-4 text-phos-black">Digital Centration & Fitting</h3>
+                        <h3 class="font-display text-2xl mb-4 text-phos-black">Contact Lenses</h3>
                         <p class="font-sans text-sm text-gray-500 leading-relaxed mb-6">
-                            Ordering new lenses requires precision. We use 3D digital centering technology to position
-                            your lenses within the frame with sub-millimeter accuracy, ensuring instant adaptation and
-                            comfort.
+                            Fitting and supply of high-quality contact lenses for daily use, astigmatism, and multifocal
+                            needs.
                         </p>
                         <ul class="font-sans text-xs text-phos-charcoal space-y-2 uppercase tracking-wide">
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Custom Frame Shaping
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Fitting Services
                             </li>
                             <li class="flex items-center gap-2">
-                                <div class="w-1.5 h-1.5 bg-phos-gold rounded-full"></div> Lens Replacement
+                                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div> Monthly / Daily
                             </li>
                         </ul>
                     </div>
@@ -431,12 +425,12 @@
                 <div class="flex justify-between items-end mb-16 border-b border-gray-200/60 pb-8">
                     <div>
                         <span
-                            class="font-sans text-xs uppercase tracking-widest text-phos-gold block mb-3">Editorial</span>
-                        <h2 class="font-serif text-4xl md:text-6xl text-phos-black split-type">The <span
-                                class="italic">Journal</span></h2>
+                            class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">Editorial</span>
+                        <h2 class="font-display font-light text-4xl md:text-6xl text-phos-black split-type">The Journal
+                        </h2>
                     </div>
                     <a href="#"
-                        class="hidden md:block font-sans text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-phos-gold hover:border-phos-gold transition-colors hover-trigger">View
+                        class="hidden md:block font-sans text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-phos-sage hover:border-phos-sage transition-colors hover-trigger">View
                         Archive</a>
                 </div>
 
@@ -454,12 +448,12 @@
                         <div class="flex flex-col flex-grow">
                             <div class="flex justify-between items-center mb-3">
                                 <span
-                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-gold">Clinical</span>
+                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-sage">Clinical</span>
                                 <span class="font-sans text-[10px] uppercase tracking-widest text-gray-400">Oct
                                     12</span>
                             </div>
                             <h3
-                                class="font-serif text-2xl mb-3 group-hover:text-phos-gold transition-colors leading-tight">
+                                class="font-display text-2xl mb-3 group-hover:text-phos-sage transition-colors leading-tight">
                                 Blue Light: Myth vs. Reality</h3>
                             <p class="font-sans text-sm text-gray-500 leading-relaxed line-clamp-3 mb-6 flex-grow">
                                 Understanding the impact of digital screens on retinal health and why coating matters
@@ -485,12 +479,12 @@
                         <div class="flex flex-col flex-grow">
                             <div class="flex justify-between items-center mb-3">
                                 <span
-                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-gold">Material</span>
+                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-sage">Material</span>
                                 <span class="font-sans text-[10px] uppercase tracking-widest text-gray-400">Sep
                                     28</span>
                             </div>
                             <h3
-                                class="font-serif text-2xl mb-3 group-hover:text-phos-gold transition-colors leading-tight">
+                                class="font-display text-2xl mb-3 group-hover:text-phos-sage transition-colors leading-tight">
                                 The Art of Japanese Acetate</h3>
                             <p class="font-sans text-sm text-gray-500 leading-relaxed line-clamp-3 mb-6 flex-grow">How
                                 Takiron and Mazzucchelli craftsmanship is redefining durability and depth of color in
@@ -516,12 +510,12 @@
                         <div class="flex flex-col flex-grow">
                             <div class="flex justify-between items-center mb-3">
                                 <span
-                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-gold">Lifestyle</span>
+                                    class="font-sans text-[10px] uppercase tracking-widest text-phos-sage">Lifestyle</span>
                                 <span class="font-sans text-[10px] uppercase tracking-widest text-gray-400">Sep
                                     15</span>
                             </div>
                             <h3
-                                class="font-serif text-2xl mb-3 group-hover:text-phos-gold transition-colors leading-tight">
+                                class="font-display text-2xl mb-3 group-hover:text-phos-sage transition-colors leading-tight">
                                 Summer Eye Care</h3>
                             <p class="font-sans text-sm text-gray-500 leading-relaxed line-clamp-3 mb-6 flex-grow">Why
                                 polarized lenses are essential for Cyprus living and how to choose the right tint for
@@ -538,17 +532,17 @@
         </section>
 
         <!-- REVIEWS SECTION -->
-        <section id="reviews" class="py-24 md:py-32 px-6 md:px-12 bg-[#F5F5F0] relative">
+        <section id="reviews" class="py-24 md:py-32 px-6 md:px-12 bg-[#F6F6F3] relative">
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div>
                         <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-[1px] bg-phos-gold"></div>
-                            <span class="font-sans text-xs uppercase tracking-widest text-phos-gold">Patient
+                            <div class="w-12 h-[1px] bg-phos-sage"></div>
+                            <span class="font-sans text-xs uppercase tracking-widest text-phos-sage">Patient
                                 Stories</span>
                         </div>
-                        <h2 class="font-serif text-4xl md:text-5xl text-phos-black max-w-2xl split-type">Trusted by
-                            <br><span class="italic">Limassol's Finest</span></h2>
+                        <h2 class="font-display font-light text-4xl md:text-5xl text-phos-black max-w-2xl split-type">
+                            Trusted by <br>Limassol's Finest</h2>
                     </div>
 
                     <div class="flex gap-2">
@@ -562,14 +556,14 @@
                     <!-- Review 1 -->
                     <div
                         class="p-8 bg-white rounded-lg hover:shadow-xl transition-all duration-500 group hover-trigger">
-                        <div class="flex gap-1 text-phos-gold mb-6 text-sm">
+                        <div class="flex gap-1 text-phos-sage mb-6 text-sm">
                             <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i>
                         </div>
-                        <p class="font-serif text-xl text-phos-charcoal mb-8 leading-relaxed">"Finally, an optician that
-                            understands style as much as science. The eye exam was incredibly thorough, and the frame
-                            selection is unlike anything else in Cyprus."</p>
+                        <p class="font-display text-xl text-phos-charcoal mb-8 leading-relaxed">"Finally, an optician
+                            that understands style as much as science. The eye exam was incredibly thorough, and the
+                            frame selection is unlike anything else in Cyprus."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop"
@@ -587,12 +581,12 @@
                     <!-- Review 2 -->
                     <div
                         class="p-8 bg-white rounded-lg hover:shadow-xl transition-all duration-500 group hover-trigger">
-                        <div class="flex gap-1 text-phos-gold mb-6 text-sm">
+                        <div class="flex gap-1 text-phos-sage mb-6 text-sm">
                             <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i>
                         </div>
-                        <p class="font-serif text-xl text-phos-charcoal mb-8 leading-relaxed">"The attention to detail
+                        <p class="font-display text-xl text-phos-charcoal mb-8 leading-relaxed">"The attention to detail
                             is remarkable. I never felt rushed during my consultation, and my new progressive lenses are
                             absolutely perfect."</p>
                         <div class="flex items-center gap-4">
@@ -612,12 +606,12 @@
                     <!-- Review 3 -->
                     <div
                         class="p-8 bg-white rounded-lg hover:shadow-xl transition-all duration-500 group hover-trigger">
-                        <div class="flex gap-1 text-phos-gold mb-6 text-sm">
+                        <div class="flex gap-1 text-phos-sage mb-6 text-sm">
                             <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                                 class="ph-fill ph-star"></i>
                         </div>
-                        <p class="font-serif text-xl text-phos-charcoal mb-8 leading-relaxed">"A beautiful space that
+                        <p class="font-display text-xl text-phos-charcoal mb-8 leading-relaxed">"A beautiful space that
                             feels more like an art gallery than a clinic. The team helped me find frames that truly suit
                             my face shape."</p>
                         <div class="flex items-center gap-4">
@@ -637,23 +631,22 @@
             </div>
         </section>
 
-        <!-- PHILOSOPHY / BRAND STORY -->
-        <section id="philosophy" class="py-32 px-6 bg-phos-black text-[#F5F5F0] relative overflow-hidden">
+        <!-- PHILOSOPHY / BRAND STORY (Updated Content) -->
+        <section id="philosophy" class="py-32 px-6 bg-phos-black text-[#F6F6F3] relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise.png')] opacity-10">
             </div>
 
             <div class="container mx-auto max-w-4xl text-center relative z-10">
-                <i class="ph ph-star-four text-phos-gold text-4xl mb-8 inline-block animate-spin-slow"></i>
+                <i class="ph ph-star-four text-phos-sage text-4xl mb-8 inline-block animate-spin-slow"></i>
 
-                <h2 class="font-serif text-4xl md:text-7xl leading-tight mb-12">
-                    "Phós" (φῶς) <br><span class="text-phos-gold italic text-3xl md:text-5xl font-normal">Noun. Light;
-                        that which makes things visible.</span>
+                <h2 class="font-display font-light text-4xl md:text-7xl leading-tight mb-12">
+                    "Phós" (φῶς) <br><span class="text-phos-sage text-3xl md:text-5xl font-normal">Light; that which
+                        makes things visible.</span>
                 </h2>
 
                 <p class="font-sans text-lg md:text-xl leading-relaxed opacity-80 max-w-2xl mx-auto">
-                    We believe eyewear is more than a medical necessity—it is the lens through which you perceive the
-                    world, and how the world perceives you. At our Kolonakiou boutique, we unite clinical rigor with
-                    aesthetic excellence.
+                    Inspired by nature, focused on clarity. We keep the dash above the letter O to preserve its
+                    authentic Greek pronunciation. At Phós Optics, we unite clinical rigor with aesthetic excellence.
                 </p>
             </div>
         </section>
@@ -662,20 +655,20 @@
         <section id="book" class="pt-24 pb-12 px-6 bg-white relative">
             <div class="container mx-auto">
                 <div
-                    class="bg-[#F5F5F0] rounded-3xl p-8 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 overflow-hidden relative">
-                    <!-- Decorative blurred orb -->
+                    class="bg-[#F6F6F3] rounded-3xl p-8 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 overflow-hidden relative">
+                    <!-- Decorative blurred orb (Sage) -->
                     <div
-                        class="absolute top-0 right-0 w-64 h-64 bg-phos-gold/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                        class="absolute top-0 right-0 w-64 h-64 bg-phos-sage/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none">
                     </div>
 
                     <div class="max-w-xl">
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6">Experience Phós Optics</h2>
+                        <h2 class="font-display font-light text-4xl md:text-5xl mb-6">Experience Phós Optics</h2>
                         <p class="font-sans text-gray-600 mb-8">Located in the heart of Limassol on Kolonakiou street.
                             Book your comprehensive eye exam or styling consultation today.</p>
 
                         <div class="flex flex-col md:flex-row gap-4">
                             <button
-                                class="bg-phos-black text-white px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-gold transition-colors duration-300 hover-trigger">
+                                class="bg-phos-black text-white px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage transition-colors duration-300 hover-trigger">
                                 Book Appointment
                             </button>
                             <button
@@ -707,8 +700,8 @@
                     </div>
                     <div
                         class="flex gap-6 mt-6 md:mt-0 font-sans text-sm underline decoration-gray-300 underline-offset-4">
-                        <a href="#" class="hover:text-phos-gold transition-colors hover-trigger">Instagram</a>
-                        <a href="#" class="hover:text-phos-gold transition-colors hover-trigger">Facebook</a>
+                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
+                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
                     </div>
                 </footer>
             </div>
@@ -841,15 +834,13 @@
                 const nav = document.getElementById('navbar');
                 if (self.direction === 1 && self.progress > 0.1) {
                     nav.classList.add('backdrop-blur-md', 'shadow-sm', '!text-phos-black');
-                    // Removed mix-blend logic here as we want consistent color
                 } else if (self.progress < 0.1) {
                     nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm', '!text-phos-black');
-                    // Removed adding mix-blend back
                 }
             }
         });
 
-        // 8. Mobile Menu Logic (ADDED)
+        // 8. Mobile Menu Logic
         const openMenuBtn = document.getElementById('open-menu');
         const closeMenuBtn = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
