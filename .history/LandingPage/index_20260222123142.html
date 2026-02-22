@@ -207,11 +207,11 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center text-phos-black transition-colors duration-300"
         id="navbar">
         <a href="/" class="hover-trigger block z-50">
             <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto">
+                alt="Phós Optics Logo" class="h-8 md:h-10 w-auto">
         </a>
 
         <div
@@ -791,7 +791,7 @@
                     <div>
                         <a href="#" class="hover-trigger block">
                             <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto">
+                                alt="Phós Optics Logo" class="h-8 md:h-10 w-auto">
                         </a>
                         <p class="font-sans text-xs text-gray-400 mt-4">© 2024 Phós Optics. All rights reserved.</p>
                     </div>
@@ -922,7 +922,22 @@
             });
         });
 
-        // 7. Mobile Menu Logic
+        // 7. Navbar Color Change on Scroll
+        ScrollTrigger.create({
+            start: 'top -80',
+            end: 99999,
+            toggleClass: { className: 'bg-white/80', targets: '#navbar' },
+            onUpdate: (self) => {
+                const nav = document.getElementById('navbar');
+                if (self.direction === 1 && self.progress > 0.1) {
+                    nav.classList.add('backdrop-blur-md', 'shadow-sm', '!text-phos-black');
+                } else if (self.progress < 0.1) {
+                    nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm', '!text-phos-black');
+                }
+            }
+        });
+
+        // 8. Mobile Menu Logic
         const openMenuBtn = document.getElementById('open-menu');
         const closeMenuBtn = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -939,7 +954,7 @@
             link.addEventListener('click', toggleMenu);
         });
 
-        // 8. Review Read More Logic
+        // 9. Review Read More Logic
         const readMoreBtns = document.querySelectorAll('.read-more-btn');
         readMoreBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -960,7 +975,7 @@
             });
         });
 
-        // 9. Reviews Carousel Logic
+        // 10. Reviews Carousel Logic
         const track = document.getElementById('reviews-track');
         const prevBtn = document.getElementById('prev-review');
         const nextBtn = document.getElementById('next-review');
@@ -993,7 +1008,7 @@
         window.addEventListener('resize', updateSlider);
         updateSlider();
 
-        // 10. Custom Cursor Logic
+        // 11. Custom Cursor Logic
         const cursor = document.querySelector('.cursor-dot');
         const hoverTriggers = document.querySelectorAll('.hover-trigger');
 
