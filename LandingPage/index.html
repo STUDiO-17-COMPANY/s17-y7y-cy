@@ -26,147 +26,153 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'phos-black': '#000000', // Brand Guide: Strict Black
-                        'phos-charcoal': '#1c1c1c',
-                        'phos-cream': '#F6F6F3', // Brand Guide: Bone-White
-                        'phos-sage': '#989E85',  // Brand Guide: Grey-Yellow Green (Replaces Gold)
-                        'phos-blue': '#5588A3',  // Brand Guide: Seasonal Blue
-                        'phos-red': '#94111C',   // Brand Guide: Seasonal Red
-                    },
-                    fontFamily: {
-                        sans: ['Manrope', 'sans-serif'], // Body copy
-                        display: ['Outfit', 'sans-serif'], // Headings (Geometric/Modern)
-                    },
-                    height: {
-                        'screen-120': '120vh',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'phos-black': '#000000', // Brand Guide: Strict Black
+              'phos-charcoal': '#1c1c1c',
+              'phos-cream': '#F6F6F3', // Brand Guide: Bone-White
+              'phos-sage': '#989E85', // Brand Guide: Grey-Yellow Green (Replaces Gold)
+              'phos-blue': '#5588A3', // Brand Guide: Seasonal Blue
+              'phos-red': '#94111C', // Brand Guide: Seasonal Red
+            },
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'], // Body copy
+              display: ['Outfit', 'sans-serif'], // Headings (Geometric/Modern)
+            },
+            height: {
+              'screen-120': '120vh',
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        /* Base Reset & Smoothness */
-        body {
-            background-color: #F6F6F3;
-            color: #000000;
-            overflow-x: hidden;
-            cursor: default;
-        }
+      /* Base Reset & Smoothness */
+      body {
+        background-color: #f6f6f3;
+        color: #000000;
+        overflow-x: hidden;
+        cursor: default;
+      }
 
-        /* Text Selection */
-        ::selection {
-            background: #989E85;
-            /* Phos Sage */
-            color: #ffffff;
-        }
+      /* Text Selection */
+      ::selection {
+        background: #989e85;
+        /* Phos Sage */
+        color: #ffffff;
+      }
 
-        /* Utility: Hide Scrollbar but allow scroll */
-        html.lenis {
-            height: auto;
-        }
+      /* Utility: Hide Scrollbar but allow scroll */
+      html.lenis {
+        height: auto;
+      }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto;
+      }
 
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
 
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
 
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
-        }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
 
-        /* Image mask logic for reveals */
-        .reveal-image-container {
-            overflow: hidden;
-        }
+      /* Image mask logic for reveals */
+      .reveal-image-container {
+        overflow: hidden;
+      }
 
-        .reveal-image {
-            transform: scale(1.2);
-            will-change: transform;
-        }
+      .reveal-image {
+        transform: scale(1.2);
+        will-change: transform;
+      }
 
-        /* Custom Cursor Follower */
-        .cursor-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #000000;
-            border-radius: 50%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9999;
-            transition: width 0.3s, height 0.3s, background-color 0.3s;
-        }
+      /* Custom Cursor Follower */
+      .cursor-dot {
+        width: 12px;
+        height: 12px;
+        background-color: #000000;
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition:
+          width 0.3s,
+          height 0.3s,
+          background-color 0.3s;
+      }
 
-        .hover-active .cursor-dot {
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            border: 1px solid #989E85;
-            /* Sage border on hover */
-            backdrop-filter: invert(0);
-        }
+      .hover-active .cursor-dot {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: 1px solid #989e85;
+        /* Sage border on hover */
+        backdrop-filter: invert(0);
+      }
 
-        /* Loader */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #F6F6F3;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      /* Loader */
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f6f6f3;
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        /* Mobile Menu Styles */
-        .mobile-menu-overlay {
-            clip-path: inset(0 0 100% 0);
-            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
+      /* Mobile Menu Styles */
+      .mobile-menu-overlay {
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+      }
 
-        .mobile-menu-open .mobile-menu-overlay {
-            clip-path: inset(0 0 0 0);
-        }
+      .mobile-menu-open .mobile-menu-overlay {
+        clip-path: inset(0 0 0 0);
+      }
 
-        /* Typography adjustments for "Wide" look */
-        .font-wide {
-            letter-spacing: -0.02em;
-        }
+      /* Typography adjustments for "Wide" look */
+      .font-wide {
+        letter-spacing: -0.02em;
+      }
 
-        /* Hide scrollbar for review track */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+      /* Hide scrollbar for review track */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
-</head>
+  </head>
 
-<body class="antialiased font-sans">
-
+  <body class="antialiased font-sans">
     <!-- Loader -->
     <div class="loader">
-        <div class="font-display text-3xl font-light text-phos-black overflow-hidden uppercase tracking-widest">
-            <span class="loader-text block transform translate-y-full">Phós Optics</span>
-        </div>
+      <div
+        class="font-display text-3xl font-light text-phos-black overflow-hidden uppercase tracking-widest"
+      >
+        <span class="loader-text block transform translate-y-full"
+          >Phós Optics</span
+        >
+      </div>
     </div>
 
     <!-- Custom Cursor -->
