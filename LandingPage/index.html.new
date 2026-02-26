@@ -509,10 +509,10 @@
               class="group hover-trigger p-6 -ml-6 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300"
             >
               <div
-                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 group-hover:border-phos-sage group-hover:text-phos-sage transition-colors shadow-sm"
+                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 border border-gray-200 group-hover:border-phos-sage group-hover:text-phos-sage transition-colors shadow-sm"
               >
                 <i
-                  class="ph ph-sunglasses text-2xl text-phos-black group-hover:text-phos-sage transition-colors"
+                  class="ph ph-spectacles text-2xl text-phos-black group-hover:text-phos-sage transition-colors"
                 ></i>
               </div>
               <h3 class="font-display text-2xl mb-4 text-phos-black">
@@ -1017,9 +1017,9 @@
                     <div
                       class="font-display text-xl text-phos-charcoal mb-8 leading-relaxed"
                     >
-                      <span class="short-text"
-                        >"Excellent optics. They selected a frame taking into account all my
-                        requests. I recommend!"</span
+                      <span
+                        >"Excellent optics. They selected a frame taking into
+                        account all my requests. I recommend!"</span
                       >
                     </div>
                   </div>
@@ -1032,7 +1032,7 @@
                     <div>
                       <span
                         class="font-sans text-xs uppercase tracking-widest block text-phos-black"
-                        >Aliya Migranova</span
+                        >Алия Мигранова</span
                       >
                       <span
                         class="font-sans text-[10px] text-gray-400 uppercase tracking-wider"
@@ -1059,9 +1059,9 @@
                     <div
                       class="font-display text-xl text-phos-charcoal mb-8 leading-relaxed"
                     >
-                      <span class="short-text"
-                        >"The excelent service and good pricing. Nikolas is very helpful and
-                        professional."</span
+                      <span
+                        >"The excelent service and good pricing. Nikolas is very
+                        helpful and professional."</span
                       >
                     </div>
                   </div>
@@ -1089,7 +1089,7 @@
         </div>
       </section>
 
-      <!-- PHILOSOPHY / BRAND STORY -->
+      <!-- PHILOSOPHY / BRAND STORY (Updated Content) -->
       <section
         id="philosophy"
         class="py-32 px-6 bg-phos-sage text-phos-black relative overflow-hidden"
