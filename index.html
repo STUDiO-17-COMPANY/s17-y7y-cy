@@ -2,250 +2,155 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Status | In Development</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Under Maintenance</title>
 
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://res.cloudinary.com/dnxoz9alm/image/upload/v1766746441/Logo_Studio17_32x32_swwwtl.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770803115/FavIcon_gtzgb7.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="Website Under Maintenance" />
+    <meta property="og:description"
+        content="This website is currently under development or scheduled technical maintenance. We will be back online very soon." />
+    <meta property="og:image"
+        content="https://res.cloudinary.com/dnxoz9alm/image/upload/v1772523612/Post_10_-_4_atlsb8.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Website Under Maintenance" />
+    <meta name="twitter:description"
+        content="This website is currently under development or scheduled technical maintenance. We will be back online very soon." />
+    <meta name="twitter:image"
+        content="https://res.cloudinary.com/dnxoz9alm/image/upload/v1772523612/Post_10_-_4_atlsb8.png" />
+
+    <!-- Fontes: Plus Jakarta Sans para a estrutura, Playfair Display para os itálicos elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Ícones -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                        inter: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        brand: {
-                            black: '#0a0a0a',
-                            dark: '#111111',
-                            accent: '#0055FF', // Electric Blue
-                            gray: '#888888',
-                            success: '#00FF66',
-                        }
+                        primary: '#2563EB', // Azul Elétrico do Studio 17
+                        royal: '#0456FE', // Novo Azul Vibrante
+                        dark: '#0F172A', // Slate escuro
+                        light: '#FFFFFF',
                     },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
-                    }
-                }
-            }
-        }
+                },
+            },
+        };
     </script>
 
     <style>
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            cursor: none;
-            overflow: hidden;
-            /* No scroll for this single page */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Custom Cursor */
-        .cursor-dot,
-        .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #0055FF;
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-
-        body:hover .cursor-outline {
-            opacity: 1;
-        }
-
-        /* Grid & Noise */
-        .bg-grid {
-            background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0.05;
-        }
-
-        /* Scanline Effect */
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 10;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 85, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
-            position: absolute;
-            bottom: 100%;
-            animation: scanline 10s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes scanline {
-            0% {
-                bottom: 100%;
+        /* Animação Abstrata Gráfica de Fundo */
+        @keyframes slow-spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
             }
 
-            100% {
-                bottom: -100%;
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
             }
         }
 
-        .hoverable {
-            cursor: none;
+        .graphic-container svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            animation: slow-spin 140s linear infinite;
         }
     </style>
 </head>
 
-<body class="antialiased selection:bg-brand-accent selection:text-white">
+<body
+    class="bg-light text-dark antialiased h-screen w-screen overflow-hidden flex flex-col relative selection:bg-primary selection:text-white">
 
-    <div class="cursor-dot hidden md:block"></div>
-    <div class="cursor-outline hidden md:block"></div>
-    <div
-        class="bg-grid bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBoNDBWMEgwIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMWg0MG0tMSAwdjQwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==')]">
+    <!-- Gráfico Abstrato Central (Anéis de Tecnologia) -->
+    <div class="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.15]"
+        style="mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);">
+        <svg class="h-[120vh] w-auto max-w-none" viewBox="-200 -200 1400 1400" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="ringGrad1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.8" />
+                    <stop offset="50%" stop-color="#0456FE" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+
+            <!-- Arcos Interiores Suaves -->
+            <circle cx="500" cy="500" r="400" stroke="url(#ringGrad1)" stroke-width="80" stroke-linecap="round"
+                class="blur-[10px]" stroke-dasharray="1600 2500" />
+            <circle cx="500" cy="500" r="400" stroke="url(#ringGrad1)" stroke-width="40" stroke-linecap="round"
+                class="blur-[3px]" stroke-dasharray="1600 2500" />
+
+            <!-- Anéis Pontilhados Exteriores -->
+            <circle cx="500" cy="500" r="490" stroke="#0456FE" stroke-width="20" stroke-dasharray="0 60"
+                stroke-linecap="round" class="opacity-40" />
+            <circle cx="500" cy="500" r="530" stroke="#2563EB" stroke-width="10" stroke-dasharray="0 40"
+                stroke-linecap="round" class="opacity-20" />
+        </svg>
     </div>
-    <div class="scanline"></div>
 
-    <!-- MAIN CONTENT CENTERED -->
-    <main class="flex-1 flex flex-col items-center justify-center relative z-20 px-4 text-center">
+    <!-- Conteúdo Central -->
+    <main class="flex-grow flex flex-col items-center justify-center relative z-10 px-6 text-center">
 
-        <!-- Status Indicator -->
+        <!-- Badge de Status (Com indicador luminoso/pulse) -->
         <div
-            class="inline-flex items-center gap-3 px-4 py-2 border border-brand-accent/30 bg-brand-accent/5 rounded-full mb-8 animate-pulse">
-            <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-            <span
-                class="font-mono text-[10px] text-brand-accent tracking-[0.2em] uppercase">System_Build_In_Progress</span>
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-slate-100 to-transparent backdrop-blur-md rounded-full pl-4 pr-12 py-2 mb-8 border-l border-slate-300">
+            <div class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(37,99,235,0.8)]"></div>
+            <span class="text-sm font-semibold text-dark tracking-wide uppercase">System Maintenance</span>
         </div>
 
-        <!-- Client Name Placeholder -->
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
-            Phós Optics
+        <!-- Título Principal -->
+        <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-bold text-dark leading-[1.15] tracking-tight mb-8">
+            Ecosystem <br class="hidden md:block" /> temporarily offline.
         </h1>
 
-        <p class="font-mono text-brand-gray text-xs md:text-sm max-w-md mx-auto mb-12">
-            This digital infrastructure is currently compiling.
-            <br>Please wait for full initialization.
-        </p>
-
-        <!-- Fake Progress Bar -->
-        <div class="w-full max-w-xs h-1 bg-white/10 rounded-full overflow-hidden mb-4">
-            <div id="progress-bar" class="h-full bg-brand-accent w-[0%]"></div>
-        </div>
-        <div class="font-mono text-[10px] text-brand-gray flex justify-between w-full max-w-xs">
-            <span>LOADING_ASSETS...</span>
-            <span id="progress-text">0%</span>
+        <!-- Descrição (Efeito de vidro no fundo para garantir leitura sobre a animação) -->
+        <div class="relative max-w-2xl">
+            <div class="absolute -inset-8 z-[-1] backdrop-blur-sm pointer-events-none"
+                style="mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);">
+            </div>
+            <p class="text-lg md:text-xl lg:text-2xl text-slate-500 font-serif italic leading-relaxed">
+                This website is currently under development or scheduled technical maintenance. We will be back online
+                very soon.
+            </p>
         </div>
 
     </main>
 
-    <!-- FOOTER: DEVELOPED BY STUDIO 17 -->
-    <footer class="relative z-20 w-full py-8 border-t border-white/5 bg-black/50 backdrop-blur-sm">
-        <div class="container mx-auto flex flex-col items-center justify-center gap-4">
-            <div class="font-mono text-[10px] text-brand-gray uppercase tracking-widest">
-                Digital Architecture & Design by
-            </div>
+    <!-- Assinatura do Studio 17 (Fixa no fundo) -->
+    <div class="relative z-20 pb-10 flex flex-col items-center justify-center gap-3 mt-auto">
+        <span class="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+            Developed and maintained by
+        </span>
 
-            <a href="https://www.studio17.world/"
-                class="group flex items-center gap-3 hoverable transition-opacity hover:opacity-100 opacity-70">
-                <!-- Logo Image -->
-                <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1766746441/Logo_Studio17_32x32_swwwtl.png"
-                    alt="STUDiO 17 Logo"
-                    class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-all group-hover:scale-110">
+        <a href="https://www.studio17.world/" target="_blank" rel="noopener noreferrer"
+            class="flex items-baseline select-none opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer">
+            <span class="font-extrabold text-2xl md:text-3xl text-dark" style="letter-spacing: -0.05em;">Studio</span>
+            <span class="font-extrabold text-2xl md:text-3xl text-dark ml-1.5"
+                style="letter-spacing: -0.12em;">17</span>
+        </a>
+    </div>
 
-                <!-- Logo Text -->
-                <div class="text-left">
-                    <div
-                        class="font-sans font-bold text-lg leading-none tracking-tight text-white group-hover:text-brand-accent transition-colors">
-                        <span class="italic">STU</span>DiO 17
-                    </div>
-                    <div class="font-mono text-[8px] text-brand-gray leading-none mt-1">
-                        SYSTEMS_ONLINE
-                    </div>
-                </div>
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        // Progress Bar Animation Simulation
-        const bar = document.getElementById('progress-bar');
-        const text = document.getElementById('progress-text');
-
-        // Simulates loading to a random percentage then hanging (realistic for dev mode)
-        let width = 0;
-        const target = 78; // Stalls at 78% because it's "under development"
-
-        function animateProgress() {
-            if (width >= target) return;
-            width += (Math.random() * 2);
-            if (width > target) width = target;
-
-            bar.style.width = width + '%';
-            text.innerText = Math.floor(width) + '%';
-
-            setTimeout(animateProgress, Math.random() * 200);
-        }
-
-        setTimeout(animateProgress, 500);
-
-        // Custom Cursor Logic
-        const cursorDot = document.querySelector(".cursor-dot");
-        const cursorOutline = document.querySelector(".cursor-outline");
-        const hoverables = document.querySelectorAll(".hoverable");
-
-        window.addEventListener("mousemove", (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-        });
-
-        document.body.addEventListener('mouseover', (e) => {
-            if (e.target.closest('.hoverable')) {
-                cursorOutline.style.width = "80px";
-                cursorOutline.style.height = "80px";
-                cursorOutline.style.backgroundColor = "rgba(0, 85, 255, 0.1)"; // Brand accent tint
-                cursorOutline.style.borderColor = "transparent";
-            } else {
-                cursorOutline.style.width = "40px";
-                cursorOutline.style.height = "40px";
-                cursorOutline.style.backgroundColor = "transparent";
-                cursorOutline.style.borderColor = "rgba(255, 255, 255, 0.5)";
-            }
-        });
-    </script>
 </body>
 
 </html>
