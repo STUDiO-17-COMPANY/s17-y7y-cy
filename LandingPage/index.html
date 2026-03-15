@@ -161,6 +161,21 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    #navbar img,
+  footer img {
+    height: 4rem;
+    max-height: 80px;
+    width: auto;
+  }
+
+  /* override on md screens */
+  @media (min-width: 768px) {
+    #navbar img,
+    footer img {
+      height: 5rem;
+    }
+  }
   </style>
 </head>
 
@@ -207,31 +222,32 @@
 
   <!-- Navigation -->
   <nav
-    class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
-    id="navbar">
-    <a href="/" class="hover-trigger block z-50">
-      <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-        alt="Phós Optics Logo" class="h-12 md:h-14 w-auto" />
-    </a>
+  class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
+  id="navbar">
+  <a href="/" class="hover-trigger block z-50">
+    <!-- increased height: h-16 on mobile, h-20 on md+ -->
+    <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
+      alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+  </a>
 
-    <!-- Desktop Menu (Reduced to 3 Choices) -->
-    <div
-      class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
-      <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger">Services</a>
-      <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger">Brands</a>
-      <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger">Journal</a>
-    </div>
+  <!-- Desktop Menu (wider gaps, small padding on each link) -->
+  <div
+    class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
+    <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
+    <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
+    <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger px-3">Journal</a>
+  </div>
 
-    <a href="#book"
-      class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
-      Book Exam
-    </a>
+  <a href="#book"
+    class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
+    Book Exam
+  </a>
 
-    <!-- Mobile Menu Trigger -->
-    <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50">
-      <i class="ph ph-list text-2xl text-phos-black"></i>
-    </button>
-  </nav>
+  <!-- Mobile Menu Trigger -->
+  <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <i class="ph ph-list text-2xl text-phos-black" aria-hidden="true"></i>
+  </button>
+</nav>
 
   <main>
     <!-- HERO SECTION (Layout for 16:9 Image) -->
@@ -257,9 +273,14 @@
           </p>
 
           <p
-            class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
-            Limassol • Cyprus
-          </p>
+  class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
+  <a href="https://maps.app.goo.gl/8KJhZ4YVi4VmNRe69"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="hover:underline hover:text-phos-black transition-colors">
+     Limassol</a>
+  • Cyprus
+</p>
 
           <!-- Hero Actions -->
           <div
@@ -316,8 +337,12 @@
           </h2>
 
           <p class="font-sans text-phos-charcoal/80 leading-relaxed text-lg max-w-md">
-            We don't just check your eyes; we analyze your vision. Using
-            state-of-the-art diagnostic technology, our comprehensive eye
+            Our comprehensive eye exams are done by our 
+certified Optometrist — Nicolas Pateras.  With his 
+expertise and the latest technology diagnostic 
+equipment available, any irregularities are detectable.
+
+<br><br>Using state-of-the-art diagnostic technology, our comprehensive eye
             exams detect the slightest irregularities.
           </p>
         </div>
@@ -830,9 +855,11 @@
             <div class="border-b border-gray-200 pb-4">
               <span class="block text-gray-400 text-xs uppercase mb-1">Hours</span>
               <p>
-                Mon - Fri: 9:30 - 19:00<br />Wed: 9:00 - 14:00<br />Sat: 9:30
-                - 15:00<br />Sun: Closed
-              </p>
+  Monday – Friday: 09:30 – 19:00<br />
+  Wednesday: 09:00 – 14:00<br />
+  Saturday: 09:30 – 17:30<br />
+  Sunday: Closed
+</p>
               <p class="text-xs text-gray-500 mt-2">
                 The Optician's schedule may vary. If you need to book an
                 eyetest please give us a call ahead.
@@ -863,7 +890,7 @@
           <div>
             <a href="#" class="hover-trigger block">
               <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto" />
+  alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
             </a>
             <p class="font-sans text-xs text-gray-400 mt-4">
               © 2024 Phós Optics. All rights reserved.
