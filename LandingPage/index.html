@@ -176,6 +176,40 @@
       height: 5rem;
     }
   }
+
+  @keyframes brand-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-marquee {
+  animation: brand-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+
+.brand-logo {
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: all 0.3s ease;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
   </style>
 </head>
 
@@ -214,6 +248,8 @@
         class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Brands</a>
       <a href="#journal"
         class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Journal</a>
+        <a href="#contact"
+        class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Contact</a>
       <a href="#book"
         class="mobile-link font-sans text-sm uppercase tracking-widest bg-phos-black text-white px-8 py-4 rounded-full mt-4">Book
         Exam</a>
@@ -236,6 +272,7 @@
     <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
     <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
     <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger px-3">Journal</a>
+    <a href="#contact" class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
   </div>
 
   <a href="#book"
@@ -251,62 +288,59 @@
 
   <main>
     <!-- HERO SECTION (Layout for 16:9 Image) -->
-    <section
-      class="relative min-h-screen flex items-center justify-center pt-32 pb-16 px-6 overflow-hidden bg-[#F6F6F3]">
-      <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
-        <!-- Text Content -->
-        <div class="lg:col-span-5 text-center lg:text-left mt-10 md:mt-0">
-          <h1
-            class="font-display font-light text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] text-phos-black mb-8 font-wide">
-            <div class="overflow-hidden pt-2">
-              <span class="block translate-y-full hero-text">Combining the science</span>
-            </div>
-            <div class="overflow-hidden pt-2">
-              <span class="block translate-y-full hero-text">of Optometry with Luxury.</span>
-            </div>
-          </h1>
+    <section class="relative min-h-screen flex items-center justify-center pt-32 pb-16 px-6 overflow-hidden group">
+  
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://res.cloudinary.com/dwvhqhtts/image/upload/v1775833830/WhatsApp_Image_2026-04-10_at_15.58.01_cpvivf.jpg"
+      alt="Luxury Eyewear"
+      class="w-full h-full object-cover object-center hero-bg grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out"
+    />
+    
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-[#F6F6F3]/55 group-hover:bg-[#F6F6F3]/30 transition-all duration-700"></div>
+  </div>
 
-          <p
-            class="font-sans text-phos-charcoal/80 leading-relaxed opacity-0 hero-fade mb-6 text-base md:text-lg max-w-md mx-auto lg:mx-0">
-            Phós Optics provides vision  that is contemporary, considered,
-            and always on trend.
-          </p>
-
-          <p
-  class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
-  <a href="https://maps.app.goo.gl/8KJhZ4YVi4VmNRe69"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="hover:underline hover:text-phos-black transition-colors">
-     Limassol</a>
-  • Cyprus
-</p>
-
-          <!-- Hero Actions -->
-          <div
-            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center opacity-0 hero-fade w-full sm:w-auto">
-            <a href="#book"
-              class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage hover:shadow-lg transition-all duration-300 hover-trigger w-full sm:w-auto shadow-md">
-              Book Examination
-            </a>
-            <a href="#journal"
-              class="group flex items-center justify-center gap-2 border border-phos-black/80 px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-transparent hover:shadow-md transition-all duration-300 hover-trigger w-full sm:w-auto backdrop-blur-sm">
-              The Journal
-              <i class="ph ph-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
-            </a>
-          </div>
+  <!-- Content -->
+  <div class="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-5 text-center lg:text-left mt-10 md:mt-0">
+      <h1 class="font-display font-light text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] text-phos-black mb-8 font-wide">
+        <div class="overflow-hidden pt-2">
+          <span class="block translate-y-full hero-text">Combining the science</span>
         </div>
-
-        <!-- Featured Image (16:9 Format) -->
-        <div class="lg:col-span-7 flex justify-center lg:justify-end w-full relative opacity-0 hero-fade">
-          <!-- Wrapper with aspect-video to force 16:9 proportion -->
-          <div class="w-full aspect-video rounded-3xl overflow-hidden relative shadow-2xl">
-            <img
-              src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1772646234/hf_20260304_174128_e4e82028-4868-4e80-9201-2858b88d3b4a_zucxmv.png"
-              alt="Luxury Eyewear" class="w-full h-full object-cover hero-bg scale-110 origin-center" />
-          </div>
+        <div class="overflow-hidden pt-2">
+          <span class="block translate-y-full hero-text">of Optometry with Luxury.</span>
         </div>
+      </h1>
+
+      <p class="font-sans text-phos-charcoal/80 leading-relaxed opacity-0 hero-fade mb-6 text-base md:text-lg max-w-md mx-auto lg:mx-0">
+        Phós Optics provides vision care that is contemporary, considered,
+        and always on trend.
+      </p>
+
+      <p class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
+        <a href="https://maps.app.goo.gl/8KJhZ4YVi4VmNRe69"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hover:underline hover:text-phos-black transition-colors">
+          Limassol • Cyprus
+        </a>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center opacity-0 hero-fade w-full sm:w-auto">
+        <a href="#book"
+           class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage hover:shadow-lg transition-all duration-300 hover-trigger w-full sm:w-auto shadow-md">
+          Book Examination
+        </a>
+        <a href="#journal"
+           class="group flex items-center justify-center gap-2 border border-phos-black/80 px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-transparent hover:shadow-md transition-all duration-300 hover-trigger w-full sm:w-auto backdrop-blur-sm">
+          The Journal
+          <i class="ph ph-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
+        </a>
       </div>
+    </div>
+  </div>
 
       <!-- Bottom Left Scroll Indicator -->
       <div class="absolute bottom-10 left-10 hidden lg:flex items-center gap-4 opacity-0 hero-fade">
@@ -319,10 +353,10 @@
     <!-- CLINICAL / SCIENCE SECTION -->
     <section id="clinical" class="py-24 md:py-32 px-6 md:px-12 bg-white relative">
       <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div class="order-2 md:order-1 reveal-image-container aspect-[4/5] md:aspect-[4/5]">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop"
+        <div class="order-2 md:order-1 reveal-image-container aspect-[4/5] md:aspect-[5/5] bg-[#F6F6F3]">
+          <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784828/Frame_97_hmqkap.png"
             alt="Clinical Phoropter"
-            class="w-full h-full object-cover reveal-image grayscale hover:grayscale-0 transition-all duration-700" />
+            class="w-full h-full object-contain object-center grayscale hover:grayscale-0 transition-all duration-700" />
         </div>
 
         <div class="order-1 md:order-2 space-y-8">
@@ -332,18 +366,14 @@
           </div>
 
           <h2 class="font-display font-light text-4xl md:text-6xl text-phos-black leading-tight split-type">
-            The science behind <br />
-            your Vision.
+            The Person Behind Phós
           </h2>
 
           <p class="font-sans text-phos-charcoal/80 leading-relaxed text-lg max-w-md">
-            Our comprehensive eye exams are done by our 
-certified Optometrist — Nicolas Pateras.  With his 
-expertise and the latest technology diagnostic 
-equipment available, any irregularities are detectable.
+            For Nikolas Pateras, optics goes beyond a profession. <br>
+            As the founder and lead optometrist at Phós, he brings his strong background in Optometry and years of practical experience. Phós Optics was created as a modern optical space where science meets design. Where the approach for eye care is done with precision, attention to detail, and a deep understanding of individual needs. 
 
-<br><br>Using state-of-the-art diagnostic technology, our comprehensive eye
-            exams detect the slightest irregularities.
+<br><br>“Through Phós (greek: φώς,meaning: light) the goal is simple: see better, feel better, and express effortlessly.” Nikolas
           </p>
         </div>
       </div>
@@ -385,16 +415,32 @@ equipment available, any irregularities are detectable.
               Comprehensive assessment of visual acuity and eye health using
               advanced diagnostics for every age.
             </p>
-            <ul class="font-sans text-xs text-phos-charcoal space-y-2 uppercase tracking-wide">
-              <li class="flex items-center gap-2">
-                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-                Optometry
-              </li>
-              <li class="flex items-center gap-2">
-                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-                Vision Care
-              </li>
-            </ul>
+          <ul class="font-sans text-xs text-phos-charcoal uppercase tracking-wide grid grid-cols-2 gap-x-8 gap-y-2">
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Myopia
+          </li>
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Hyperopia
+          </li>
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Astigmatism
+          </li>
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Presbyopia
+          </li>
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Orthoptics
+          </li>
+          <li class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+            Myopia Control
+          </li>
+        </ul>
           </div>
 
           <!-- Service 2 -->
@@ -447,13 +493,17 @@ equipment available, any irregularities are detectable.
                 <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
                 Monthly / Daily
               </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Always available the below contact lense brands
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- JOURNAL / BLOG SECTION -->
+    <!-- JOURNAL / BLOG SECTION 
     <section id="journal" class="py-24 md:py-32 px-6 md:px-12 bg-white">
       <div class="container mx-auto">
         <div class="flex justify-between items-end mb-16 border-b border-gray-200/60 pb-8">
@@ -469,7 +519,7 @@ equipment available, any irregularities are detectable.
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <!-- Article 1 -->
+
           <article class="group cursor-pointer hover-trigger flex flex-col h-full">
             <div class="overflow-hidden aspect-[4/3] mb-6 relative rounded-sm">
               <img src="https://images.unsplash.com/photo-1555447405-058428d1deef?q=80&w=2028&auto=format&fit=crop"
@@ -497,7 +547,7 @@ equipment available, any irregularities are detectable.
             </div>
           </article>
 
-          <!-- Article 2 -->
+
           <article class="group cursor-pointer hover-trigger flex flex-col h-full">
             <div class="overflow-hidden aspect-[4/3] mb-6 relative rounded-sm">
               <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=2070&auto=format&fit=crop"
@@ -525,7 +575,6 @@ equipment available, any irregularities are detectable.
             </div>
           </article>
 
-          <!-- Article 3 -->
           <article class="group cursor-pointer hover-trigger flex flex-col h-full">
             <div class="overflow-hidden aspect-[4/3] mb-6 relative rounded-sm">
               <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=2080&auto=format&fit=crop"
@@ -554,7 +603,71 @@ equipment available, any irregularities are detectable.
           </article>
         </div>
       </div>
-    </section>
+    </section>  -->
+
+
+<!-- BRAND CAROUSEL / LOGOS -->
+<section class="py-20 md:py-28 px-6 md:px-12 bg-[#F6F6F3] overflow-hidden">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">
+          Featured Brands
+        </span>
+        <h2 class="font-display font-light text-4xl md:text-5xl text-phos-black leading-tight">
+          Luxury names we trust
+        </h2>
+      </div>
+
+      <p class="font-sans text-sm text-gray-500 max-w-md md:text-right">
+        A curated selection of optical, fashion, and lens partners chosen for quality, comfort, and design.
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-[#F6F6F3] to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-[#F6F6F3] to-transparent z-10"></div>
+
+      <div class="overflow-hidden">
+        <div class="brand-marquee flex w-max items-center gap-14 md:gap-20">
+          <div class="flex items-center gap-14 md:gap-20 pr-14">
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png" alt="Bausch and Lomb" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg" alt="Gucci" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg" alt="Fendi" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png" alt="Alcon" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg" alt="Celine" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg" alt="Ermenegildo Zegna" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg" alt="Johnson & Johnson" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg" alt="Tom Ford" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg" alt="Miu Miu" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg" alt="Prada" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg" alt="CooperVision" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="Acuvue" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg" alt="Oakley" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg" alt="Ray-Ban" />
+          </div>
+
+          <div class="flex items-center gap-14 md:gap-20 pr-14" aria-hidden="true">
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg" alt="" />
+            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- REVIEWS SECTION -->
     <section id="reviews" class="py-24 md:py-32 px-6 md:px-12 bg-[#F6F6F3] relative overflow-hidden">
@@ -823,9 +936,7 @@ equipment available, any irregularities are detectable.
               Experience Phós Optics
             </h2>
             <p class="font-sans text-gray-600 mb-8">
-              Located in Kolonakiou street, a commercial artery and business
-              hub, Phós Optics offers a carefully curated brand mix and luxury
-              vision care.
+              At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4">
@@ -835,7 +946,7 @@ equipment available, any irregularities are detectable.
               </button>
               <button
                 class="border border-phos-black text-phos-black px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-300 hover-trigger">
-                +357 25 000 000
+                +357 25 320004
               </button>
             </div>
           </div>
@@ -897,8 +1008,8 @@ equipment available, any irregularities are detectable.
             </p>
           </div>
           <div class="flex gap-6 mt-6 md:mt-0 font-sans text-sm underline decoration-gray-300 underline-offset-4">
-            <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
-            <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
+            <a href="https://www.instagram.com/phos.optics/" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
+            <a href="https://www.facebook.com/phos.optics/" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
           </div>
         </footer>
       </div>
@@ -906,6 +1017,8 @@ equipment available, any irregularities are detectable.
   </main>
 
   <script>
+
+    
     // 1. Initialize Lenis for Smooth Scrolling
     const lenis = new Lenis({
       duration: 1.2,
