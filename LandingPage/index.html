@@ -4,7 +4,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phós Optics | Luxury Eyewear & Clinical Care</title>
+  <title>Eyewear & Eye Care</title>
+  <meta name="title" content="Eyewear & Eye Care" />
+  <meta name="description"
+    content="Experience contemporary vision care at Phós Optics in Limassol. We combine clinical optometry with luxury eyewear and premium lenses. Book your eye exam today." />
+  <meta name="keywords"
+    content="optometrist Limassol, luxury eyewear Cyprus, eye exam Limassol, designer sunglasses, contact lenses, Nikolas Pateras optician" />
+  <meta name="author" content="Phós Optics" />
+  <link rel="canonical" href="https://www.phosoptics.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.phosoptics.com/" />
+  <meta property="og:title" content="Phós Optics | Science Meets Luxury" />
+  <meta property="og:description"
+    content="Contemporary vision care in Limassol. Discover curated luxury frames and precision clinical optometry by Nikolas Pateras." />
+  <meta property="og:image"
+    content="https://res.cloudinary.com/dnxoz9alm/image/upload/v1776512672/PhosOpticsOGBackgroundImage_hspum1.png" />
+  <meta property="og:image:alt" content="Phós Optics Luxury Eyewear Store in Limassol" />
+  <meta property="og:site_name" content="Phós Optics" />
+  <meta property="og:locale" content="en_CY" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.phosoptics.com/" />
+  <meta property="twitter:title" content="Phós Optics | Science Meets Luxury" />
+  <meta property="twitter:description"
+    content="Contemporary vision care in Limassol. Discover curated luxury frames and precision clinical optometry by Nikolas Pateras." />
+  <meta property="twitter:image"
+    content="https://res.cloudinary.com/dnxoz9alm/image/upload/v1776512672/PhosOpticsOGBackgroundImage_hspum1.png" />
+  <meta property="twitter:image:alt" content="Phós Optics Limassol" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Optician", "MedicalClinic"],
+      "name": "Phós Optics",
+      "description": "Phós Optics provides contemporary vision care in Limassol, Cyprus, combining clinical optometry with luxury eyewear.",
+      "image": "https://res.cloudinary.com/dnxoz9alm/image/upload/v1776512672/PhosOpticsOGBackgroundImage_hspum1.png",
+      "logo": "https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg",
+      "@id": "https://www.phosoptics.com/#localbusiness",
+      "url": "https://www.phosoptics.com/",
+      "telephone": "+357 25 320004",
+      "priceRange": "$$$",
+      "founder": {
+        "@type": "Person",
+        "name": "Nikolas Pateras"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kolonakiou 60, Agios Athanasios",
+        "addressLocality": "Limassol",
+        "postalCode": "4103",
+        "addressCountry": "CY"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.7032, 
+        "longitude": 33.0560 
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
+          "opens": "09:30",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "09:00",
+          "closes": "14:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:30",
+          "closes": "17:30"
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Clinical Eye Examination"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Luxury Eyewear & Sunglasses"
+          }
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/phos.optics/",
+        "https://www.facebook.com/phos.optics/"
+      ]
+    }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -163,53 +261,55 @@
     }
 
     #navbar img,
-  footer img {
-    height: 4rem;
-    max-height: 80px;
-    width: auto;
-  }
-
-  /* override on md screens */
-  @media (min-width: 768px) {
-    #navbar img,
     footer img {
-      height: 5rem;
+      height: 4rem;
+      max-height: 80px;
+      width: auto;
     }
-  }
 
-  @keyframes brand-marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+    /* override on md screens */
+    @media (min-width: 768px) {
 
-.brand-marquee {
-  animation: brand-marquee 28s linear infinite;
-  will-change: transform;
-}
+      #navbar img,
+      footer img {
+        height: 5rem;
+      }
+    }
 
-.brand-marquee:hover {
-  animation-play-state: paused;
-}
+    @keyframes brand-marquee {
+      0% {
+        transform: translateX(0);
+      }
 
-.brand-logo {
-  filter: grayscale(100%);
-  opacity: 0.65;
-  transition: all 0.3s ease;
-  height: 42px;
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-}
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
-.brand-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.05);
-}
+    .brand-marquee {
+      animation: brand-marquee 28s linear infinite;
+      will-change: transform;
+    }
+
+    .brand-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .brand-logo {
+      filter: grayscale(100%);
+      opacity: 0.65;
+      transition: all 0.3s ease;
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -248,7 +348,7 @@
         class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Brands</a>
       <a href="#journal"
         class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Journal</a>
-        <a href="#contact"
+      <a href="#contact"
         class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Contact</a>
       <a href="#book"
         class="mobile-link font-sans text-sm uppercase tracking-widest bg-phos-black text-white px-8 py-4 rounded-full mt-4">Book
@@ -258,89 +358,91 @@
 
   <!-- Navigation -->
   <nav
-  class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
-  id="navbar">
-  <a href="/" class="hover-trigger block z-50">
-    <!-- increased height: h-16 on mobile, h-20 on md+ -->
-    <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-      alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
-  </a>
+    class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
+    id="navbar">
+    <a href="/" class="hover-trigger block z-50">
+      <!-- increased height: h-16 on mobile, h-20 on md+ -->
+      <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
+        alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+    </a>
 
-  <!-- Desktop Menu (wider gaps, small padding on each link) -->
-  <div
-    class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
-    <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
-    <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
-    <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger px-3">Journal</a>
-    <a href="#contact" class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
-  </div>
+    <!-- Desktop Menu (wider gaps, small padding on each link) -->
+    <div
+      class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
+      <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
+      <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
+      <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger px-3">Journal</a>
+      <a href="#contact" class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
+    </div>
 
-  <a href="#book"
-    class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
-    Book Exam
-  </a>
+    <a href="#book"
+      class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
+      Book Exam
+    </a>
 
-  <!-- Mobile Menu Trigger -->
-  <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-    <i class="ph ph-list text-2xl text-phos-black" aria-hidden="true"></i>
-  </button>
-</nav>
+    <!-- Mobile Menu Trigger -->
+    <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50" aria-label="Open menu" aria-expanded="false"
+      aria-controls="mobile-menu">
+      <i class="ph ph-list text-2xl text-phos-black" aria-hidden="true"></i>
+    </button>
+  </nav>
 
   <main>
     <!-- HERO SECTION (Layout for 16:9 Image) -->
     <section class="relative min-h-screen flex items-center justify-center pt-32 pb-16 px-6 overflow-hidden group">
-  
-  <!-- Background image -->
-  <div class="absolute inset-0 z-0">
-    <img
-      src="https://res.cloudinary.com/dwvhqhtts/image/upload/v1775833830/WhatsApp_Image_2026-04-10_at_15.58.01_cpvivf.jpg"
-      alt="Luxury Eyewear"
-      class="w-full h-full object-cover object-center hero-bg grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out"
-    />
-    
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-[#F6F6F3]/55 group-hover:bg-[#F6F6F3]/30 transition-all duration-700"></div>
-  </div>
 
-  <!-- Content -->
-  <div class="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-    <div class="lg:col-span-5 text-center lg:text-left mt-10 md:mt-0">
-      <h1 class="font-display font-light text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] text-phos-black mb-8 font-wide">
-        <div class="overflow-hidden pt-2">
-          <span class="block translate-y-full hero-text">Combining the science</span>
-        </div>
-        <div class="overflow-hidden pt-2">
-          <span class="block translate-y-full hero-text">of Optometry with Luxury.</span>
-        </div>
-      </h1>
+      <!-- Background image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://res.cloudinary.com/dwvhqhtts/image/upload/v1775833830/WhatsApp_Image_2026-04-10_at_15.58.01_cpvivf.jpg"
+          alt="Luxury Eyewear"
+          class="w-full h-full object-cover object-center hero-bg grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out" />
 
-      <p class="font-sans text-phos-charcoal/80 leading-relaxed opacity-0 hero-fade mb-6 text-base md:text-lg max-w-md mx-auto lg:mx-0">
-        Phós Optics provides vision care that is contemporary, considered,
-        and always on trend.
-      </p>
-
-      <p class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
-        <a href="https://maps.app.goo.gl/8KJhZ4YVi4VmNRe69"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="hover:underline hover:text-phos-black transition-colors">
-          Limassol • Cyprus
-        </a>
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center opacity-0 hero-fade w-full sm:w-auto">
-        <a href="#book"
-           class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage hover:shadow-lg transition-all duration-300 hover-trigger w-full sm:w-auto shadow-md">
-          Book Examination
-        </a>
-        <a href="#journal"
-           class="group flex items-center justify-center gap-2 border border-phos-black/80 px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-transparent hover:shadow-md transition-all duration-300 hover-trigger w-full sm:w-auto backdrop-blur-sm">
-          The Journal
-          <i class="ph ph-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
-        </a>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-[#F6F6F3]/55 group-hover:bg-[#F6F6F3]/30 transition-all duration-700"></div>
       </div>
-    </div>
-  </div>
+
+      <!-- Content -->
+      <div class="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-5 text-center lg:text-left mt-10 md:mt-0">
+          <h1
+            class="font-display font-light text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] text-phos-black mb-8 font-wide">
+            <div class="overflow-hidden pt-2">
+              <span class="block translate-y-full hero-text">Combining the science</span>
+            </div>
+            <div class="overflow-hidden pt-2">
+              <span class="block translate-y-full hero-text">of Optometry with Luxury.</span>
+            </div>
+          </h1>
+
+          <p
+            class="font-sans text-phos-charcoal/80 leading-relaxed opacity-0 hero-fade mb-6 text-base md:text-lg max-w-md mx-auto lg:mx-0">
+            Phós Optics provides vision care that is contemporary, considered,
+            and always on trend.
+          </p>
+
+          <p
+            class="font-sans text-xs md:text-sm uppercase tracking-[0.3em] mb-10 opacity-0 hero-fade text-phos-sage font-semibold">
+            <a href="https://maps.app.goo.gl/8KJhZ4YVi4VmNRe69" target="_blank" rel="noopener noreferrer"
+              class="hover:underline hover:text-phos-black transition-colors">
+              Limassol • Cyprus
+            </a>
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center opacity-0 hero-fade w-full sm:w-auto">
+            <a href="#book"
+              class="bg-phos-black text-white px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage hover:shadow-lg transition-all duration-300 hover-trigger w-full sm:w-auto shadow-md">
+              Book Examination
+            </a>
+            <a href="#journal"
+              class="group flex items-center justify-center gap-2 border border-phos-black/80 px-8 py-4 md:py-3.5 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-white hover:border-transparent hover:shadow-md transition-all duration-300 hover-trigger w-full sm:w-auto backdrop-blur-sm">
+              The Journal
+              <i class="ph ph-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
       <!-- Bottom Left Scroll Indicator -->
       <div class="absolute bottom-10 left-10 hidden lg:flex items-center gap-4 opacity-0 hero-fade">
@@ -371,12 +473,16 @@
 
           <p class="font-sans text-phos-charcoal/80 leading-relaxed text-lg max-w-md">
             For Nikolas Pateras, optics goes beyond a profession. <br>
-            As the founder and lead optometrist at Phós, he brings his strong background in Optometry and years of practical experience. Phós Optics was created as a modern optical space where science meets design. Where the approach for eye care is done with precision, attention to detail, and a deep understanding of individual needs. 
+            As the founder and lead optometrist at Phós, he brings his strong background in Optometry and years of
+            practical experience. Phós Optics was created as a modern optical space where science meets design. Where
+            the approach for eye care is done with precision, attention to detail, and a deep understanding of
+            individual needs.
 
-<br><br><span class="italic">
-  “Through Phós (greek: φώς,meaning: light) the goal is simple: see better, feel better, and express effortlessly.”
-</span>
-<span class="not-italic"> Nikolas</span>
+            <br><br><span class="italic">
+              “Through Phós (greek: φώς,meaning: light) the goal is simple: see better, feel better, and express
+              effortlessly.”
+            </span>
+            <span class="not-italic"> Nikolas</span>
           </p>
         </div>
       </div>
@@ -418,32 +524,32 @@
               Comprehensive assessment of visual acuity and eye health using
               advanced diagnostics for every age.
             </p>
-          <ul class="font-sans text-xs text-phos-charcoal uppercase tracking-wide grid grid-cols-2 gap-x-8 gap-y-2">
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Myopia
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Hyperopia
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Astigmatism
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Presbyopia
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Orthoptics
-          </li>
-          <li class="flex items-center gap-2">
-            <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
-            Myopia Control
-          </li>
-        </ul>
+            <ul class="font-sans text-xs text-phos-charcoal uppercase tracking-wide grid grid-cols-2 gap-x-8 gap-y-2">
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Myopia
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Hyperopia
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Astigmatism
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Presbyopia
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Orthoptics
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-phos-sage rounded-full"></div>
+                Myopia Control
+              </li>
+            </ul>
           </div>
 
           <!-- Service 2 -->
@@ -609,68 +715,122 @@
     </section>  -->
 
 
-<!-- BRAND CAROUSEL / LOGOS -->
-<section class="py-20 md:py-28 px-6 md:px-12 bg-[#F6F6F3] overflow-hidden">
-  <div class="container mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-      <div>
-        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">
-          Featured Brands
-        </span>
-        <h2 class="font-display font-light text-4xl md:text-5xl text-phos-black leading-tight">
-          Luxury names we trust
-        </h2>
-      </div>
-
-      <p class="font-sans text-sm text-gray-500 max-w-md md:text-right">
-        A curated selection of optical, fashion, and lens partners chosen for quality, comfort, and design.
-      </p>
-    </div>
-
-    <div class="relative">
-      <div class="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-[#F6F6F3] to-transparent z-10"></div>
-      <div class="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-[#F6F6F3] to-transparent z-10"></div>
-
-      <div class="overflow-hidden">
-        <div class="brand-marquee flex w-max items-center gap-14 md:gap-20">
-          <div class="flex items-center gap-14 md:gap-20 pr-14">
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png" alt="Bausch and Lomb" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg" alt="Gucci" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg" alt="Fendi" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png" alt="Alcon" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg" alt="Celine" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg" alt="Ermenegildo Zegna" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg" alt="Johnson & Johnson" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg" alt="Tom Ford" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg" alt="Miu Miu" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg" alt="Prada" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg" alt="CooperVision" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="Acuvue" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg" alt="Oakley" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg" alt="Ray-Ban" />
+    <!-- BRAND CAROUSEL / LOGOS -->
+    <section class="py-20 md:py-28 px-6 md:px-12 bg-[#F6F6F3] overflow-hidden">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">
+              Featured Brands
+            </span>
+            <h2 class="font-display font-light text-4xl md:text-5xl text-phos-black leading-tight">
+              Luxury names we trust
+            </h2>
           </div>
 
-          <div class="flex items-center gap-14 md:gap-20 pr-14" aria-hidden="true">
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg" alt="" />
-            <img class="brand-logo" src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg" alt="" />
+          <p class="font-sans text-sm text-gray-500 max-w-md md:text-right">
+            A curated selection of optical, fashion, and lens partners chosen for quality, comfort, and design.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div
+            class="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-[#F6F6F3] to-transparent z-10">
+          </div>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-[#F6F6F3] to-transparent z-10">
+          </div>
+
+          <div class="overflow-hidden">
+            <div class="brand-marquee flex w-max items-center gap-14 md:gap-20">
+              <div class="flex items-center gap-14 md:gap-20 pr-14">
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png"
+                  alt="Bausch and Lomb" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg"
+                  alt="Gucci" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg"
+                  alt="Fendi" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png"
+                  alt="Alcon" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg"
+                  alt="Celine" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg"
+                  alt="Ermenegildo Zegna" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg"
+                  alt="Johnson & Johnson" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg"
+                  alt="Tom Ford" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg"
+                  alt="Miu Miu" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg"
+                  alt="Prada" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg"
+                  alt="CooperVision" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="Acuvue" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg"
+                  alt="Oakley" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg"
+                  alt="Ray-Ban" />
+              </div>
+
+              <div class="flex items-center gap-14 md:gap-20 pr-14" aria-hidden="true">
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/bausch-and-lomb-logo_mj6tmx.png"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Gucci-Logo.wine_qmbznc.svg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Fendi-Logo.wine_q9e35p.svg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Alcon_Logo_2019.svg_km9oez.png"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Celine_logo_oyusnf.svg" alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/Ermenegildo_Zegna-Logo.wine_wmeic0.svg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784766/Johnson___Johnson-Logo.wine_j3dhr7.svg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784768/Tom_Ford_Logo_heizrr.svg" alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Miu_Miu-Logo.wine_eox8wt.svg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Prada-Logo_qwiufj.svg" alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/coopervision-logo-1200x630_fwf9lc.jpg"
+                  alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784765/acuvue_mvvzev.jpg" alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/Oakley_logo_ek6jbp.svg" alt="" />
+                <img class="brand-logo"
+                  src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1774784767/ray-ban-logo-svgrepo-com_puh7gz.svg"
+                  alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- REVIEWS SECTION -->
     <section id="reviews" class="py-24 md:py-32 px-6 md:px-12 bg-[#F6F6F3] relative overflow-hidden">
@@ -939,7 +1099,8 @@
               Experience Phós Optics
             </h2>
             <p class="font-sans text-gray-600 mb-8">
-              At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.
+              At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based
+              on each prescription and its severity.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4">
@@ -969,11 +1130,11 @@
             <div class="border-b border-gray-200 pb-4">
               <span class="block text-gray-400 text-xs uppercase mb-1">Hours</span>
               <p>
-  Monday – Friday: 09:30 – 19:00<br />
-  Wednesday: 09:00 – 14:00<br />
-  Saturday: 09:30 – 17:30<br />
-  Sunday: Closed
-</p>
+                Monday – Friday: 09:30 – 19:00<br />
+                Wednesday: 09:00 – 14:00<br />
+                Saturday: 09:30 – 17:30<br />
+                Sunday: Closed
+              </p>
               <p class="text-xs text-gray-500 mt-2">
                 The Optician's schedule may vary. If you need to book an
                 eyetest please give us a call ahead.
@@ -1004,15 +1165,17 @@
           <div>
             <a href="#" class="hover-trigger block">
               <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-  alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+                alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
             </a>
             <p class="font-sans text-xs text-gray-400 mt-4">
-              © 2024 Phós Optics. All rights reserved.
+              © 2026 Phós Optics. All rights reserved.
             </p>
           </div>
           <div class="flex gap-6 mt-6 md:mt-0 font-sans text-sm underline decoration-gray-300 underline-offset-4">
-            <a href="https://www.instagram.com/phos.optics/" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
-            <a href="https://www.facebook.com/phos.optics/" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
+            <a href="https://www.instagram.com/phos.optics/"
+              class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
+            <a href="https://www.facebook.com/phos.optics/"
+              class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
           </div>
         </footer>
       </div>
@@ -1021,7 +1184,7 @@
 
   <script>
 
-    
+
     // 1. Initialize Lenis for Smooth Scrolling
     const lenis = new Lenis({
       duration: 1.2,
