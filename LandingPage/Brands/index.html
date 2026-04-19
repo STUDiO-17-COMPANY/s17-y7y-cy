@@ -219,24 +219,6 @@
             transition: color 0.3s ease;
         }
 
-        .brand-item::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background-color: #989E85;
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-out;
-        }
-
-        .brand-item:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
         .brand-item:hover {
             color: #989E85;
         }
@@ -278,7 +260,7 @@
             <i class="ph ph-x text-4xl text-phos-black"></i>
         </button>
         <div class="flex flex-col gap-8 text-center">
-            <a href="../index.html"
+            <a href="https://www.phosoptics.com/LandingPage"
                 class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Home</a>
             <a href="../index.html#clinical"
                 class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Clinical</a>
@@ -293,30 +275,35 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black transition-colors duration-300 bg-[#F6F6F3]/90 backdrop-blur-md border-b border-gray-200/50"
-        id="navbar">
-        <a href="../index.html" class="hover-trigger block z-50">
-            <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto">
-        </a>
+    <nav
+    class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
+    id="navbar">
+    <a href="https://www.phosoptics.com/LandingPage" class="hover-trigger block z-50">
+      <!-- increased height: h-16 on mobile, h-20 on md+ -->
+      <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
+        alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+    </a>
 
-        <div
-            class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
-            <a href="../index.html#clinical" class="hover:text-phos-sage transition-colors hover-trigger">Clinical</a>
-            <a href="../index.html#services" class="hover:text-phos-sage transition-colors hover-trigger">Services</a>
-            <a href="index.html" class="text-phos-sage transition-colors hover-trigger">Brands</a>
-            <a href="../index.html#journal" class="hover:text-phos-sage transition-colors hover-trigger">Journal</a>
-        </div>
+    <!-- Desktop Menu (wider gaps, small padding on each link) -->
+    <div
+      class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
+      <a href="#services" class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
+      <a href="/LandingPage/Brands" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
+      <a href="#journal" class="hover:text-phos-sage transition-colors hover-trigger px-3">Journal</a>
+      <a href="#contact" class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
+    </div>
 
-        <a href="../index.html#book"
-            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white transition-all hover-trigger">
-            Book Exam
-        </a>
+    <a href="#book"
+      class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
+      Book Exam
+    </a>
 
-        <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50">
-            <i class="ph ph-list text-2xl text-phos-black"></i>
-        </button>
-    </nav>
+    <!-- Mobile Menu Trigger -->
+    <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50" aria-label="Open menu" aria-expanded="false"
+      aria-controls="mobile-menu">
+      <i class="ph ph-list text-2xl text-phos-black" aria-hidden="true"></i>
+    </button>
+  </nav>
 
     <main class="pt-32">
         <!-- PAGE HEADER (Replacing the massive Hero Section) -->
@@ -368,51 +355,60 @@
 
                 <!-- Typographic Grid for Top Brands -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Celine</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Parisian Elegance</p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Miu Miu</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Avant-Garde Femininity
-                        </p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Gucci</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Eclectic Luxury</p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Tom Ford</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Modern Glamour</p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Prada</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Intellectual Fashion
-                        </p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Ray-Ban</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Timeless Icons</p>
-                    </div>
-                    <div class="group cursor-pointer hover-trigger lg:col-span-3">
-                        <h2
-                            class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
-                            Oakley</h2>
-                        <p class="font-sans text-sm text-gray-400 mt-3 uppercase tracking-widest">Performance & Tech</p>
-                    </div>
-                </div>
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Celine
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Miu Miu
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Gucci
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Tom Ford
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Prada
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Ray-Ban
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Chopard
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Zenga
+        </h2>
+    </div>
+
+    <div class="group cursor-pointer hover-trigger">
+        <h2 class="font-display font-light text-5xl md:text-6xl text-phos-black group-hover:text-phos-sage transition-colors duration-500 uppercase">
+            Oakley
+        </h2>
+    </div>
+</div>
             </div>
         </section>
 
