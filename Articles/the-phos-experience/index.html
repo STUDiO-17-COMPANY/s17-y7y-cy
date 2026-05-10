@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phós Experience | Clinical Precision Meets Curated Design</title>
+    <meta name="description"
+        content="Discover the Phós Optics experience, where clinical eye care, advanced diagnostic technology, and curated eyewear design come together in Limassol." />
+    <meta name="author" content="Nikolas Pateras" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'phos-black': '#000000',
+                        'phos-charcoal': '#1c1c1c',
+                        'phos-cream': '#F6F6F3',
+                        'phos-sage': '#989E85',
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F6F6F3;
+            color: #000000;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        ::selection {
+            background: #989E85;
+            color: #ffffff;
+        }
+
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .cursor-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #000000;
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+        }
+
+        .hover-active .cursor-dot {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 1px solid #989E85;
+            backdrop-filter: invert(0);
+        }
+
+        .mobile-menu-overlay {
+            clip-path: inset(0 0 100% 0);
+            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mobile-menu-open .mobile-menu-overlay {
+            clip-path: inset(0 0 0 0);
+        }
+
+        .article-content p {
+            margin-bottom: 2rem;
+        }
+
+        .article-content img {
+            border-radius: 4px;
+            margin: 3rem 0;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#F6F6F3] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6">
+        <button id="close-menu"
+            class="absolute top-4 right-4 w-16 h-16 flex items-center justify-center hover:opacity-50 transition-opacity z-50 rounded-full active:bg-gray-100">
+            <i class="ph ph-x text-4xl text-phos-black"></i>
+        </button>
+        <div class="flex flex-col gap-8 text-center">
+            <a href="../../index.html"
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Home</a>
+            <a href="../../index.html#clinical"
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Clinical</a>
+            <a href="../../brands.html"
+                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Brands</a>
+            <a href="../../journal.html"
+                class="mobile-link font-display font-light text-4xl text-phos-sage transition-colors">Journal</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
+        id="navbar">
+        <a href="../../index.html" class="hover-trigger block z-50">
+            <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
+                alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+        </a>
+
+        <!-- Desktop Menu -->
+        <div
+            class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
+            <a href="../../index.html#services"
+                class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
+            <a href="../../brands.html" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
+            <a href="../../journal.html" class="text-phos-sage transition-colors hover-trigger px-3">Journal</a>
+            <a href="../../index.html#contact"
+                class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
+        </div>
+
+        <a href="../../index.html#book"
+            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
+            Book Exam
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50">
+            <i class="ph ph-list text-2xl text-phos-black"></i>
+        </button>
+    </nav>
+
+    <main class="pt-32">
+        <!-- ARTICLE HERO -->
+        <article>
+            <header class="px-6 pt-12 pb-8 md:pb-16 max-w-5xl mx-auto text-center">
+                <a href="../../journal.html"
+                    class="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-phos-sage font-semibold mb-8 hover-trigger hover:text-phos-black transition-colors animate-fade-in">
+                    <i class="ph ph-arrow-left"></i> Back to Journal
+                </a>
+
+                <h1
+                    class="font-display font-light text-4xl md:text-6xl lg:text-7xl text-phos-black leading-[1.1] mb-8 split-text tracking-tight">
+                    The Phós Experience: Where Clinical Precision Meets Curated Design
+                </h1>
+
+                <div
+                    class="flex items-center justify-center gap-4 font-sans text-sm text-gray-500 uppercase tracking-widest animate-fade-in-up flex-wrap">
+                    <span>By Nikolas Pateras</span>
+                    <div class="w-1 h-1 rounded-full bg-gray-300"></div>
+                    <time datetime="2026-05-10">May 10, 2026</time>
+                    <div class="w-1 h-1 rounded-full bg-gray-300"></div>
+                    <span class="text-phos-sage">Phós Experience</span>
+                </div>
+            </header>
+
+            <!-- HERO IMAGE -->
+            <div class="w-full px-6 md:px-12 pb-16 mx-auto animate-fade-in-up">
+                <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=2000&auto=format&fit=crop"
+                    alt="Elegant optical boutique with curated eyewear and clinical precision"
+                    class="w-full h-[50vh] md:h-[70vh] object-cover rounded-xl shadow-sm filter grayscale-[20%]">
+            </div>
+
+            <!-- ARTICLE BODY -->
+            <div
+                class="max-w-3xl mx-auto px-6 font-sans text-lg md:text-xl text-phos-charcoal/90 leading-relaxed font-light article-content">
+
+                <p>Historically, acquiring a new pair of glasses has been divided into two distinct, often disconnected
+                    experiences: the sterile, medical routine of an eye exam, followed by a retail transaction where you
+                    are left to navigate a wall of frames on your own. At Phós Optics, we have entirely dismantled this
+                    paradigm.</p>
+
+                <p>The journey begins the moment you step into our Kolonakiou boutique. We operate on the fundamental
+                    belief that exceptional eyewear requires a foundation of uncompromising medical accuracy. Our
+                    clinical eye care is not a preliminary step; it is the core of our practice.</p>
+
+                <p>Using state-of-the-art diagnostic technology, we look beyond a basic prescription. We assess the
+                    holistic health of your eyes, evaluating how modern visual demands — from prolonged screen time to
+                    the intense glare of the Mediterranean sun — impact your daily life.</p>
+
+                <blockquote class="border-l-[3px] border-phos-sage pl-6 md:pl-10 my-16">
+                    <p class="font-display font-light text-2xl md:text-3xl text-phos-black leading-snug m-0">
+                        "A beautifully crafted frame is ultimately useless if the lenses it holds do not serve your
+                        vision with absolute optical precision."
+                    </p>
+                </blockquote>
+
+                <h2 class="font-display font-light text-3xl md:text-4xl text-phos-black mt-16 mb-8 tracking-tight">
+                    The Art of the Fitting
+                </h2>
+
+                <p>Once the clinical assessment is complete, the focus shifts seamlessly to aesthetics and architecture.
+                    We do not expect our clients to sift through hundreds of frames. Instead, our opticians act as
+                    specialized stylists, guiding you through a curated selection based on your specific facial
+                    geometry,
+                    skin undertones, and personal lifestyle.</p>
+
+                <p>We source our collections meticulously, partnering with independent artisans and distinguished
+                    fashion
+                    houses who prioritize exceptional materials and small-batch manufacturing over mass-market trends.
+                    Whether it is a perfectly balanced titanium chassis or a rich, hand-polished acetate, the frames we
+                    present are chosen for their structural integrity as much as their aesthetic appeal.</p>
+
+                <p>The Phós experience is ultimately about harmony. It is the bespoke integration of a flawless medical
+                    prescription with a frame that elevates your personal identity, fitted with exact microscopic
+                    adjustments to sit perfectly on your face. We don't just sell glasses; we engineer better vision.
+                </p>
+
+                <!-- SHARE & TAGS -->
+                <div
+                    class="mt-24 pt-12 pb-20 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex gap-3 font-sans text-xs uppercase tracking-widest text-gray-500 flex-wrap">
+                        <span class="bg-white px-4 py-2 rounded-full border border-gray-200">Clinical Care</span>
+                        <span class="bg-white px-4 py-2 rounded-full border border-gray-200">Curated Design</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="font-sans text-xs uppercase tracking-widest text-phos-black font-semibold">Share:</span>
+                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
+                            <i class="ph ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
+                            <i class="ph ph-facebook-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
+                            <i class="ph ph-twitter-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- CTA SECTION -->
+        <section class="py-24 px-6 bg-white border-t border-gray-100">
+            <div class="container mx-auto max-w-5xl">
+                <div
+                    class="bg-[#F6F6F3] rounded-3xl p-8 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 overflow-hidden relative">
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-phos-sage/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                    </div>
+
+                    <div class="max-w-xl relative z-10 text-center md:text-left mx-auto md:mx-0">
+                        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">Experience
+                            It Yourself</span>
+                        <h2 class="font-display font-light text-4xl md:text-5xl mb-6 text-phos-black">Book a Clinical
+                            Eye Exam</h2>
+                        <p class="font-sans text-gray-600 mb-8 text-base">Visit our Kolonakiou boutique for clinical
+                            precision, curated eyewear, and a fitting experience designed around your vision, face, and
+                            lifestyle.</p>
+
+                        <div class="flex justify-center md:justify-start">
+                            <a href="tel:+35725320004"
+                                class="inline-block text-center bg-phos-black text-white px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage transition-colors duration-300 hover-trigger">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section class="pt-12 pb-12 px-6 bg-white relative border-t border-gray-100">
+            <div class="container mx-auto">
+                <footer class="flex flex-col md:flex-row justify-between items-end pt-8">
+                    <div>
+                        <a href="../../index.html" class="hover-trigger block">
+                            <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
+                                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto">
+                        </a>
+                        <p class="font-sans text-xs text-gray-400 mt-4">© 2026 Phós Optics. All rights reserved.</p>
+                    </div>
+                    <div
+                        class="flex gap-6 mt-6 md:mt-0 font-sans text-sm underline decoration-gray-300 underline-offset-4">
+                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
+                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Initialize Lenis for Smooth Scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP Register
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initial Animations
+        gsap.from('.animate-fade-in', { opacity: 0, y: 15, duration: 1, ease: "power3.out", delay: 0.1 });
+        gsap.from('.split-text', { opacity: 0, y: 25, duration: 1.2, ease: "power4.out", delay: 0.2 });
+        gsap.from('.animate-fade-in-up', { opacity: 0, y: 30, duration: 1.2, ease: "power3.out", delay: 0.3 });
+
+        // Mobile Menu Logic
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            document.body.classList.toggle('mobile-menu-open');
+        }
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Custom Cursor Logic
+        const cursor = document.querySelector('.cursor-dot');
+        const hoverTriggers = document.querySelectorAll('.hover-trigger');
+
+        if (cursor && !window.matchMedia("(max-width: 768px)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(cursor, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+
+            hoverTriggers.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursor.parentElement.classList.add('hover-active');
+                    gsap.to(cursor, { scale: 1.5, duration: 0.3 });
+                });
+                link.addEventListener('mouseleave', () => {
+                    cursor.parentElement.classList.remove('hover-active');
+                    gsap.to(cursor, { scale: 1, duration: 0.3 });
+                });
+            });
+        }
+
+        // Section Scroll Animations
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                },
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+
+</html>
