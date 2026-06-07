@@ -1,32 +1,29 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Optician in Limassol | Clinical Eye Care at Phós Optics</title>
-    <meta name="description"
-        content="Looking for a trusted optician in Limassol? Discover why clinical eye care, advanced diagnostics, and precise frame fitting matter at Phós Optics in Kolonakiou." />
-    <meta name="author" content="Nikolas Pateras" />
-
+    <meta
+        content="Looking for a trusted optician in Limassol? Discover why clinical eye care, advanced diagnostics, and precise frame fitting matter at Phós Optics in Kolonakiou."
+        name="description">
+    <meta content="Nikolas Pateras" name="author">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap"
-        rel="stylesheet">
-
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&amp;family=Outfit:wght@200;300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- GSAP & Lenis -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -45,7 +42,6 @@
             }
         }
     </script>
-
     <style>
         body {
             background-color: #F6F6F3;
@@ -116,191 +112,184 @@
             width: 100%;
             height: auto;
         }
+
+
+        .language-toggle {
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 9999px;
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            line-height: 1;
+            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+        }
+
+        .language-toggle:hover {
+            transform: translateY(-1px);
+            border-color: #989E85;
+            background-color: rgba(152, 158, 133, 0.1);
+        }
+
+
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .language-toggle.is-active {
+            border-color: #989E85;
+            background-color: rgba(152, 158, 133, 0.16);
+        }
     </style>
+    </meta>
+    </meta>
 </head>
 
 <body class="antialiased font-sans">
-
     <!-- Custom Cursor -->
     <div class="cursor-dot hidden md:block"></div>
-
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 bg-[#F6F6F3] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6">
-        <button id="close-menu"
-            class="absolute top-4 right-4 w-16 h-16 flex items-center justify-center hover:opacity-50 transition-opacity z-50 rounded-full active:bg-gray-100">
+    <div class="fixed inset-0 bg-[#F6F6F3] z-[60] mobile-menu-overlay flex flex-col justify-center items-center px-6"
+        id="mobile-menu">
+        <button
+            class="absolute top-4 right-4 w-16 h-16 flex items-center justify-center hover:opacity-50 transition-opacity z-50 rounded-full active:bg-gray-100"
+            id="close-menu">
             <i class="ph ph-x text-4xl text-phos-black"></i>
         </button>
         <div class="flex flex-col gap-8 text-center">
-            <a href="../../index.html"
-                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Home</a>
-            <a href="../../index.html#clinical"
-                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Clinical</a>
-            <a href="../../brands.html"
-                class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors">Brands</a>
-            <a href="../../journal.html"
-                class="mobile-link font-display font-light text-4xl text-phos-sage transition-colors">Journal</a>
+            <a class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors"
+                data-i18n="t0" href="../../index.html">Home</a>
+            <a class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors"
+                data-i18n="t1" href="../../index.html#clinical">Clinical</a>
+            <a class="mobile-link font-display font-light text-4xl text-phos-black hover:text-phos-sage transition-colors"
+                data-i18n="t2" href="../../brands.html">Brands</a>
+            <a class="mobile-link font-display font-light text-4xl text-phos-sage transition-colors" data-i18n="t3"
+                href="../../journal.html">Journal</a>
+            <div class="language-switcher mx-auto mt-2" data-language-switcher aria-label="Language selector"><button
+                    class="language-toggle hover-trigger" data-language-option="en" type="button">EN</button><button
+                    class="language-toggle hover-trigger" data-language-option="el" type="button">GR</button><button
+                    class="language-toggle hover-trigger" data-language-option="ru" type="button">RU</button></div>
         </div>
     </div>
-
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 py-3 flex justify-between items-center text-phos-black bg-[#F6F6F3]/95 backdrop-blur-md border-b border-gray-200/50"
         id="navbar">
-        <a href="../../index.html" class="hover-trigger block z-50">
-            <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                alt="Phós Optics Logo" class="h-16 md:h-20 w-auto" />
+        <a class="hover-trigger block z-50" href="../../index.html">
+            <img alt="Phós Optics Logo" class="h-16 md:h-20 w-auto"
+                src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg" />
         </a>
-
         <!-- Desktop Menu -->
         <div
             class="hidden md:flex gap-12 font-sans text-sm tracking-widest uppercase items-center font-medium text-phos-charcoal/80">
-            <a href="../../index.html#services"
-                class="hover:text-phos-sage transition-colors hover-trigger px-3">Services</a>
-            <a href="../../brands.html" class="hover:text-phos-sage transition-colors hover-trigger px-3">Brands</a>
-            <a href="../../journal.html" class="text-phos-sage transition-colors hover-trigger px-3">Journal</a>
-            <a href="../../index.html#contact"
-                class="hover:text-phos-sage transition-colors hover-trigger px-3">Contact</a>
+            <a class="hover:text-phos-sage transition-colors hover-trigger px-3" data-i18n="t4"
+                href="../../index.html#services">Services</a>
+            <a class="hover:text-phos-sage transition-colors hover-trigger px-3" data-i18n="t2"
+                href="../../brands.html">Brands</a>
+            <a class="text-phos-sage transition-colors hover-trigger px-3" data-i18n="t3"
+                href="../../journal.html">Journal</a>
+            <a class="hover:text-phos-sage transition-colors hover-trigger px-3" data-i18n="t5"
+                href="../../index.html#contact">Contact</a>
         </div>
-
-        <a href="../../index.html#book"
-            class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger">
-            Book Exam
-        </a>
-
+        <div class="hidden md:flex items-center gap-3 z-50"><a
+                class="hidden md:block border border-phos-black px-6 py-2 rounded-full font-sans text-xs uppercase tracking-widest hover:bg-phos-black hover:text-white hover:border-phos-black transition-all hover-trigger"
+                data-i18n="t6" href="../../index.html#book">Book Exam</a></div>
+        <div class="hidden md:flex absolute right-6 top-full mt-4 z-50">
+            <div class="language-switcher bg-[#F6F6F3]/95 backdrop-blur-md rounded-full px-2 py-1 shadow-sm border border-gray-200/60"
+                data-language-switcher aria-label="Language selector"><button class="language-toggle hover-trigger"
+                    data-language-option="en" type="button">EN</button><button class="language-toggle hover-trigger"
+                    data-language-option="el" type="button">🇬🇷</button><button class="language-toggle hover-trigger"
+                    data-language-option="ru" type="button">🇷🇺</button></div>
+        </div>
         <!-- Mobile Menu Trigger -->
-        <button id="open-menu" class="md:hidden hover-trigger p-4 -mr-4 z-50">
+        <div class="language-switcher md:hidden z-50 mr-2" data-language-switcher aria-label="Language selector"><button
+                class="language-toggle hover-trigger" data-language-option="en" type="button">EN</button><button
+                class="language-toggle hover-trigger" data-language-option="el" type="button">🇬🇷</button><button
+                class="language-toggle hover-trigger" data-language-option="ru" type="button">🇷🇺</button></div><button
+            class="md:hidden hover-trigger p-4 -mr-4 z-50" id="open-menu">
             <i class="ph ph-list text-2xl text-phos-black"></i>
         </button>
     </nav>
-
     <main class="pt-32">
         <!-- ARTICLE HERO -->
         <article>
             <header class="px-6 pt-12 pb-8 md:pb-16 max-w-5xl mx-auto text-center">
-                <a href="../../journal.html"
-                    class="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-phos-sage font-semibold mb-8 hover-trigger hover:text-phos-black transition-colors animate-fade-in">
-                    <i class="ph ph-arrow-left"></i> Back to Journal
-                </a>
-
-                <h1
-                    class="font-display font-light text-4xl md:text-6xl lg:text-7xl text-phos-black leading-[1.1] mb-8 split-text tracking-tight">
-                    Finding the Right Optician in Limassol: The Importance of Clinical Eye Care
-                </h1>
-
+                <a class="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-phos-sage font-semibold mb-8 hover-trigger hover:text-phos-black transition-colors animate-fade-in"
+                    href="../../journal.html"><i class="ph ph-arrow-left"></i> <span data-i18n="t7">Back to
+                        Journal</span></a>
+                <h1 class="font-display font-light text-4xl md:text-6xl lg:text-7xl text-phos-black leading-[1.1] mb-8 split-text tracking-tight"
+                    data-i18n="t8">Why Phos Optics?</h1>
                 <div
                     class="flex items-center justify-center gap-4 font-sans text-sm text-gray-500 uppercase tracking-widest animate-fade-in-up flex-wrap">
-                    <span>By Nikolas Pateras</span>
+                    <span data-i18n="t9">By Nikolas Pateras</span>
                     <div class="w-1 h-1 rounded-full bg-gray-300"></div>
-                    <time datetime="2026-05-10">May 10, 2026</time>
-                    <div class="w-1 h-1 rounded-full bg-gray-300"></div>
-                    <span class="text-phos-sage">Clinical Eye Care</span>
+                    <time data-i18n="t10" datetime="2026-05-10">May 10, 2026</time>
                 </div>
             </header>
-
             <!-- HERO IMAGE -->
             <div class="w-full px-6 md:px-12 pb-16 mx-auto animate-fade-in-up">
-                <img src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?q=80&w=2000&auto=format&fit=crop"
-                    alt="Clinical eye exam and professional optician care in Limassol"
-                    class="w-full h-[50vh] md:h-[70vh] object-cover rounded-xl shadow-sm filter grayscale-[20%]">
+                <img alt="Clinical eye exam and professional optician care in Limassol"
+                    class="w-full h-[50vh] md:h-[70vh] object-cover rounded-xl shadow-sm filter grayscale-[20%]"
+                    src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1780839776/STOREGENERIC1_o2qzms.jpg" />
             </div>
-
             <!-- ARTICLE BODY -->
             <div
                 class="max-w-3xl mx-auto px-6 font-sans text-lg md:text-xl text-phos-charcoal/90 leading-relaxed font-light article-content">
-
-                <p>For many, an eye exam is treated as an afterthought — a quick ten-minute check to update a
-                    prescription before hurriedly picking frames off a retail rack. But when searching for a trusted
-                    optician in Limassol, it is vital to understand the profound difference between a high-volume retail
-                    transaction and comprehensive clinical eye care. At Phós Optics in Kolonakiou, we believe your
-                    vision demands a rigorous medical foundation before it ever becomes an aesthetic choice.</p>
-
-                <h2
-                    class="font-display font-light text-3xl md:text-4xl text-phos-black mt-16 mb-8 tracking-tight">
-                    Beyond the Standard Eye Exam
-                </h2>
-
-                <p>Finding the best optical care in Cyprus requires looking for a practice that invests in
-                    state-of-the-art diagnostic technology. A true clinical eye exam goes far beyond simply reading
-                    letters on a chart. It involves a holistic, microscopic assessment of your ocular health — screening
-                    for early signs of strain, underlying physiological conditions, and subtle biomechanical shifts. Our
-                    optical center is engineered to provide this level of precise, uncompromising evaluation.</p>
-
-                <blockquote class="border-l-[3px] border-phos-sage pl-6 md:pl-10 my-16">
-                    <p class="font-display font-light text-2xl md:text-3xl text-phos-black leading-snug m-0">
-                        "Your vision demands a rigorous medical foundation before it ever becomes an aesthetic choice."
-                    </p>
-                </blockquote>
-
-                <h2
-                    class="font-display font-light text-3xl md:text-4xl text-phos-black mt-16 mb-8 tracking-tight">
-                    Tailoring Vision to the Mediterranean Environment
-                </h2>
-
-                <p>Living and working in Cyprus presents highly specific visual challenges. The intense, year-round
-                    Mediterranean sun requires absolute, zero-compromise UV protection, while the modern professional’s
-                    reliance on digital screens triggers unprecedented levels of eye fatigue.</p>
-
-                <p>A premium optician does not just hand you a piece of paper with a prescription; they analyze your
-                    environment. Whether you require advanced anti-fatigue lenses to combat digital eye strain or
-                    optically flawless polarized sunglasses to cut through the coastal glare, our clinical approach
-                    ensures your lenses are engineered specifically for your daily lifestyle demands.</p>
-
-                <h2
-                    class="font-display font-light text-3xl md:text-4xl text-phos-black mt-16 mb-8 tracking-tight">
-                    The Bridge Between Clinical Accuracy and Curated Design
-                </h2>
-
-                <p>A flawless medical prescription is ultimately compromised if it is housed in a poorly fitted,
-                    mass-produced frame. Once your eye exam in Kolonakiou is complete, our specialists transition
-                    seamlessly from optical diagnostics to structural fitting.</p>
-
-                <p>We bypass mass-market catalogues, focusing instead on independent artisans and dedicated fashion
-                    houses. By utilizing superior materials — such as high-density cellulose acetate and aerospace-grade
-                    titanium — we ensure that your frame possesses the structural integrity required to hold your lenses
-                    in perfect optical alignment. The result is a pair of glasses calibrated flawlessly to both your
-                    visual requirements and your facial architecture.</p>
-
-                <h2
-                    class="font-display font-light text-3xl md:text-4xl text-phos-black mt-16 mb-8 tracking-tight">
-                    Prioritize Your Vision
-                </h2>
-
-                <p>Your eyesight is your most critical sense. Do not compromise it with a rushed, mass-market
-                    experience. If you are looking for an expert optician in Limassol, we invite you to experience the
-                    intersection of advanced clinical eye care and bespoke structural design.</p>
-
-                <p>
-                    <a href="tel:+35725320004"
-                        class="inline-flex items-center gap-3 text-phos-black border-b border-phos-sage pb-1 hover:text-phos-sage transition-colors hover-trigger">
-                        Book Your Eye Exam in Kolonakiou
-                        <i class="ph ph-arrow-right"></i>
-                    </a>
-                </p>
-
+                <p data-i18n="t11">One of the questions I am often asked in the store is: “Why Phos Optics?” The answer
+                    may not be as simple as it seems, but it is certainly worth sharing.</p>
+                <p data-i18n="t12">Light is not merely a physical phenomenon. As an optician, I witness every day how
+                    its proper management can profoundly transform a person’s quality of life. At Phos Optics, we do not
+                    simply “sell glasses.” We care for what is most precious: the very medium through which you connect
+                    with everything you love.</p>
+                <p data-i18n="t13">Through this article, I invite you to discover what happens when scientific precision
+                    meets personal dedication.</p>
+                <p data-i18n="t14">The history of light is, in essence, the history of vision itself. From the moment of
+                    the Big Bang, when photons flooded the chaos, light began its eternal journey. Since then, it has
+                    never ceased to serve as our sole witness to the existence of the world.</p>
+                <p data-i18n="t15">Light has deeply influenced human thought and, consequently, every civilization—from
+                    the Far East and the Arab world to Ancient Greece, Rome, and, of course, the Christian tradition. At
+                    the same time, both the arts and the sciences have continually sought to master it. We encounter it
+                    in poetry, painting, music, sculpture, theatre, and photography, culminating in the seventh
+                    art—cinema—where we experience its ultimate celebration.</p>
+                <p data-i18n="t16">Countless scientists have devoted their lives to understanding its nature. Galileo
+                    Galilei, Leonardo da Vinci, Isaac Newton, Johannes Kepler, James Clerk Maxwell, Albert Einstein, and
+                    many others have largely shaped the way we understand light today. We now recognize its dual
+                    nature—both wave and particle—while the quantum revolution has revealed that light holds mysteries
+                    that often go beyond common sense.</p>
+                <p data-i18n="t17">This understanding has led humanity to tremendous advances in medicine, astronomy,
+                    communications, energy, and our everyday lives. After all, you are most likely reading this very
+                    article right now thanks to the light emitted by a screen.</p>
+                <p data-i18n="t18">In today’s fast-paced world of increasing visual demands, the choice of the name
+                    “Phos Optics” was not a random commercial decision. It was made with deep respect for light itself.
+                    For me, this respect is not expressed merely through words, but demonstrated through the precision
+                    of my work. It reflects the commitment of a healthcare professional to care for your vision with the
+                    seriousness it deserves, always offering the best, personalized solutions.</p>
+                <p data-i18n="t19">“Phos” is the word that represents the beginning of everything—truth, knowledge, and
+                    all that I wish to offer you. It embodies the clarity and care that I want to define every
+                    experience you have in our store. Because for me, light is not simply an object of study; it is a
+                    responsibility. And Phos Optics is my way of carrying that responsibility to every person who places
+                    their trust in me—to each eye, individually.</p>
+                <p data-i18n="t20">This sense of duty is the invaluable legacy of my father, Michalis. Although he is no
+                    longer with us, he taught me that integrity in one’s work is the only true foundation upon which you
+                    can look others in the eye. At the same time, it is the promise I make every day to my wife and
+                    children—my own personal light—who constantly remind me why it is worth striving for excellence.</p>
+                <p data-i18n="t21">At Phos Optics, the people who stand beside me combine scientific expertise with
+                    refined aesthetics. They are here to guide you toward the right choices, so that your vision is not
+                    only crystal clear, but also a true reflection of your personality.</p>
+                <p data-i18n="t22">Because at Phos Optics, light meets science, history, and above all, the human
+                    element. We look forward to welcoming you and discovering it together.</p>
+                <p data-i18n="t23">And because eye care is a journey of knowledge that never truly ends, through this
+                    page I will be regularly sharing articles and advice. My goal is to help you better understand
+                    topics related to your eyes, new technologies, and everything that can make your daily life brighter
+                    and clearer.</p>
+                <p data-i18n="t24">I would be truly delighted to have you join me on this journey.</p>
+                <p data-i18n="t25">Nikolas Pateras</p>
                 <!-- SHARE & TAGS -->
-                <div
-                    class="mt-24 pt-12 pb-20 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6">
-                    <div class="flex gap-3 font-sans text-xs uppercase tracking-widest text-gray-500 flex-wrap">
-                        <span class="bg-white px-4 py-2 rounded-full border border-gray-200">Eye Exam</span>
-                        <span class="bg-white px-4 py-2 rounded-full border border-gray-200">Optician Limassol</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span
-                            class="font-sans text-xs uppercase tracking-widest text-phos-black font-semibold">Share:</span>
-                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
-                            <i class="ph ph-instagram-logo text-xl"></i>
-                        </a>
-                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
-                            <i class="ph ph-facebook-logo text-xl"></i>
-                        </a>
-                        <a href="#" class="hover-trigger text-gray-400 hover:text-phos-sage transition-colors">
-                            <i class="ph ph-twitter-logo text-xl"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </article>
-
         <!-- CTA SECTION -->
         <section class="py-24 px-6 bg-white border-t border-gray-100">
             <div class="container mx-auto max-w-5xl">
@@ -309,47 +298,58 @@
                     <div
                         class="absolute top-0 right-0 w-64 h-64 bg-phos-sage/20 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none">
                     </div>
-
                     <div class="max-w-xl relative z-10 text-center md:text-left mx-auto md:mx-0">
-                        <span class="font-sans text-xs uppercase tracking-widest text-phos-sage block mb-3">Clinical
-                            Precision</span>
-                        <h2 class="font-display font-light text-4xl md:text-5xl mb-6 text-phos-black">Book Your Eye
-                            Exam in Kolonakiou</h2>
-                        <p class="font-sans text-gray-600 mb-8 text-base">Experience advanced clinical eye care,
-                            precise diagnostics, and curated eyewear fitting at Phós Optics in Limassol.</p>
-
+                        <h2 class="font-display font-light text-4xl md:text-5xl mb-6 text-phos-black" data-i18n="t26">
+                            Book Your Eye Exam</h2>
+                        <p class="font-sans text-gray-600 mb-8 text-base" data-i18n="t27">At Phós Optics we cut lenses
+                            in-house, making the turn around time significantly faster and accurate based on each
+                            prescription and its severity.</p>
                         <div class="flex justify-center md:justify-start">
-                            <a href="tel:+35725320004"
-                                class="inline-block text-center bg-phos-black text-white px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest hover:bg-phos-sage transition-colors duration-300 hover-trigger">
-                                Book Appointment
-                            </a>
+                            <a class="inline-block bg-phos-black text-white px-8 py-4 rounded-full font-sans text-sm uppercase tracking-widest opacity-80 hover:opacity-100 transition-opacity duration-300"
+                                data-i18n="t28"
+                                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2--S6Ez8iM-IdpbneDWD_q4WnZE4tRM-h4fvqLiwu_ZwTJ-M6L4fNQavVPYdjhh7Nt4V5capf3"
+                                rel="noopener noreferrer" target="_blank">Book Appointment</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- FOOTER -->
-        <section class="pt-12 pb-12 px-6 bg-white relative border-t border-gray-100">
-            <div class="container mx-auto">
-                <footer class="flex flex-col md:flex-row justify-between items-end pt-8">
-                    <div>
-                        <a href="../../index.html" class="hover-trigger block">
-                            <img src="https://res.cloudinary.com/dnxoz9alm/image/upload/v1770807357/LOGOPHOS_a2sbkp.svg"
-                                alt="Phós Optics Logo" class="h-12 md:h-16 w-auto">
-                        </a>
-                        <p class="font-sans text-xs text-gray-400 mt-4">© 2026 Phós Optics. All rights reserved.</p>
-                    </div>
+        <footer class="w-full bg-[#0A0A0A] border-t border-white/10 py-6 md:py-8 relative z-50">
+            <div
+                class="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Lado do Cliente (Copyright e Links Legais) -->
+                <div
+                    class="text-slate-500 text-sm font-medium flex flex-wrap items-center justify-center md:justify-start gap-3">
+                    <span>©
+                        <script>document.write(new Date().getFullYear())</script> Phós Optics.
+                    </span>
+                    <span class="hidden md:inline text-slate-700">|</span>
+                    <a class="hover:text-white transition-colors" data-i18n="t29" href="#">Privacy Policy</a>
+                    <span class="hidden md:inline text-slate-700">|</span>
+                    <a class="hover:text-white transition-colors" data-i18n="t30" href="#">Terms of Service</a>
+                </div>
+                <!-- Lado da Agência (Assinatura Premium Studio 17) -->
+                <a class="group flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full pl-5 pr-1.5 py-1.5 transition-all duration-300 shadow-lg focus:outline-none"
+                    href="https://www.studio17.world" rel="noopener noreferrer" target="_blank">
+                    <span
+                        class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest group-hover:text-slate-300 transition-colors hidden sm:block"
+                        data-i18n="t31">Built for Growth</span>
                     <div
-                        class="flex gap-6 mt-6 md:mt-0 font-sans text-sm underline decoration-gray-300 underline-offset-4">
-                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Instagram</a>
-                        <a href="#" class="hover:text-phos-sage transition-colors hover-trigger">Facebook</a>
+                        class="flex items-center gap-2 bg-[#111111] rounded-full px-4 py-2 border border-white/5 group-hover:border-primary/40 transition-colors shadow-inner">
+                        <div class="flex items-baseline select-none">
+                            <span
+                                class="font-extrabold text-base tracking-[-0.05em] text-white group-hover:text-white transition-colors">Studio</span>
+                            <span
+                                class="font-extrabold text-base tracking-[-0.12em] text-white ml-1 group-hover:text-primary transition-colors">17</span>
+                        </div>
+                        <i
+                            class="ph-bold ph-arrow-up-right text-slate-500 ml-1 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
                     </div>
-                </footer>
+                </a>
             </div>
-        </section>
+        </footer>
     </main>
-
     <script>
         // Initialize Lenis for Smooth Scrolling
         const lenis = new Lenis({
@@ -426,6 +426,163 @@
                 ease: "power3.out"
             });
         });
+
+
+        // Instant English/Greek/Russian language switcher
+        const languageText = {
+            "en": {
+                "t0": "Home",
+                "t1": "Clinical",
+                "t2": "Brands",
+                "t3": "Journal",
+                "t4": "Services",
+                "t5": "Contact",
+                "t6": "Book Exam",
+                "t7": "Back to Journal",
+                "t8": "Why Phos Optics?",
+                "t9": "By Nikolas Pateras",
+                "t10": "May 10, 2026",
+                "t11": "One of the questions I am often asked in the store is: “Why Phos Optics?” The answer may not be as simple as it seems, but it is certainly worth sharing.",
+                "t12": "Light is not merely a physical phenomenon. As an optician, I witness every day how its proper management can profoundly transform a person’s quality of life. At Phos Optics, we do not simply “sell glasses.” We care for what is most precious: the very medium through which you connect with everything you love.",
+                "t13": "Through this article, I invite you to discover what happens when scientific precision meets personal dedication.",
+                "t14": "The history of light is, in essence, the history of vision itself. From the moment of the Big Bang, when photons flooded the chaos, light began its eternal journey. Since then, it has never ceased to serve as our sole witness to the existence of the world.",
+                "t15": "Light has deeply influenced human thought and, consequently, every civilization—from the Far East and the Arab world to Ancient Greece, Rome, and, of course, the Christian tradition. At the same time, both the arts and the sciences have continually sought to master it. We encounter it in poetry, painting, music, sculpture, theatre, and photography, culminating in the seventh art—cinema—where we experience its ultimate celebration.",
+                "t16": "Countless scientists have devoted their lives to understanding its nature. Galileo Galilei, Leonardo da Vinci, Isaac Newton, Johannes Kepler, James Clerk Maxwell, Albert Einstein, and many others have largely shaped the way we understand light today. We now recognize its dual nature—both wave and particle—while the quantum revolution has revealed that light holds mysteries that often go beyond common sense.",
+                "t17": "This understanding has led humanity to tremendous advances in medicine, astronomy, communications, energy, and our everyday lives. After all, you are most likely reading this very article right now thanks to the light emitted by a screen.",
+                "t18": "In today’s fast-paced world of increasing visual demands, the choice of the name “Phos Optics” was not a random commercial decision. It was made with deep respect for light itself. For me, this respect is not expressed merely through words, but demonstrated through the precision of my work. It reflects the commitment of a healthcare professional to care for your vision with the seriousness it deserves, always offering the best, personalized solutions.",
+                "t19": "“Phos” is the word that represents the beginning of everything—truth, knowledge, and all that I wish to offer you. It embodies the clarity and care that I want to define every experience you have in our store. Because for me, light is not simply an object of study; it is a responsibility. And Phos Optics is my way of carrying that responsibility to every person who places their trust in me—to each eye, individually.",
+                "t20": "This sense of duty is the invaluable legacy of my father, Michalis. Although he is no longer with us, he taught me that integrity in one’s work is the only true foundation upon which you can look others in the eye. At the same time, it is the promise I make every day to my wife and children—my own personal light—who constantly remind me why it is worth striving for excellence.",
+                "t21": "At Phos Optics, the people who stand beside me combine scientific expertise with refined aesthetics. They are here to guide you toward the right choices, so that your vision is not only crystal clear, but also a true reflection of your personality.",
+                "t22": "Because at Phos Optics, light meets science, history, and above all, the human element. We look forward to welcoming you and discovering it together.",
+                "t23": "And because eye care is a journey of knowledge that never truly ends, through this page I will be regularly sharing articles and advice. My goal is to help you better understand topics related to your eyes, new technologies, and everything that can make your daily life brighter and clearer.",
+                "t24": "I would be truly delighted to have you join me on this journey.",
+                "t25": "Nikolas Pateras",
+                "t26": "Book Your Eye Exam",
+                "t27": "At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.",
+                "t28": "Book Appointment",
+                "t29": "Privacy Policy",
+                "t30": "Terms of Service",
+                "t31": "Built for Growth"
+            },
+            "el": {
+                "t0": "Home",
+                "t1": "Clinical",
+                "t2": "Brands",
+                "t3": "Journal",
+                "t4": "Services",
+                "t5": "Contact",
+                "t6": "Book Exam",
+                "t7": "Back to Journal",
+                "t8": "Γιατί Phos Optics;",
+                "t9": "Από τον Νικόλα Πατέρα",
+                "t10": "10 Μαΐου 2026",
+                "t11": "Μία από τις ερωτήσεις που δέχομαι συχνά στο κατάστημα είναι: «Γιατί Phos Optics;». Η απάντηση ίσως να μην είναι τόσο απλή όσο φαίνεται, αλλά αξίζει να τη μοιραστώ μαζί σας.",
+                "t12": "Το φως δεν είναι απλώς ένα φυσικό φαινόμενο. Ως οπτικός, βλέπω καθημερινά πώς η σωστή διαχείρισή του μπορεί να αλλάξει ριζικά την ποιότητα ζωής ενός ανθρώπου. Στο Phos Optics δεν περιοριζόμαστε στο να «πουλάμε γυαλιά». Φροντίζουμε ό,τι πολυτιμότερο έχετε: το μέσο με το οποίο συνδέεστε με όσα αγαπάτε.",
+                "t13": "Μέσα από αυτό το άρθρο, σας προσκαλώ να ανακαλύψετε τι συμβαίνει όταν η επιστημονική ακρίβεια συναντά την προσωπική αφοσίωση.",
+                "t14": "Η ιστορία του φωτός είναι, στην πραγματικότητα, η ιστορία της ίδιας της όρασης. Από τη στιγμή της Μεγάλης Έκρηξης, όταν τα φωτόνια πλημμύρισαν το χάος, το φως ξεκίνησε την αιώνια πορεία του. Έκτοτε, δεν σταμάτησε ποτέ να αποτελεί τον μοναδικό μας μάρτυρα για την ύπαρξη του κόσμου.",
+                "t15": "Το φως επηρέασε βαθιά την ανθρώπινη σκέψη και, κατά συνέπεια, όλους τους πολιτισμούς: από την Άπω Ανατολή και τον Αραβικό κόσμο, έως την Αρχαία Ελλάδα, τη Ρώμη και, φυσικά, τη Χριστιανική παράδοση. Παράλληλα, οι τέχνες και η επιστήμη προσπάθησαν ανέκαθεν να το δαμάσουν. Το συναντούμε στην ποίηση, στη ζωγραφική, στη μουσική, στη γλυπτική, στο θέατρο, στη φωτογραφία, για να φτάσουμε στην έβδομη τέχνη, τον κινηματογράφο, όπου βιώνουμε την απόλυτη δοξολογία του.",
+                "t16": "Πλήθος επιστημόνων αφιέρωσαν τη ζωή τους στην κατανόηση της φύσης του. Ο Γαλιλαίος, ο Ντα Βίντσι, ο Νεύτωνας, ο Κέπλερ, ο Μάξγουελ, ο Αϊνστάιν και πολλοί άλλοι, διαμόρφωσαν εν πολλοίς τον τρόπο που αντιλαμβανόμαστε το φως σήμερα. Γνωρίζουμε πλέον τη διπλή του υπόσταση, κυματική και σωματιδιακή, ενώ η κβαντική επανάσταση μας δίδαξε πως το φως κρύβει μυστικά που συχνά ξεπερνούν την κοινή λογική.",
+                "t17": "Αυτή η κατανόηση οδήγησε την ανθρωπότητα σε τεράστια άλματα προόδου στην ιατρική, στην αστρονομία, στις επικοινωνίες, στην ενέργεια και στην ίδια μας την καθημερινότητα. Άλλωστε, ακόμη και αυτό το άρθρο, πιθανότατα το διαβάζετε αυτή τη στιγμή χάρη στο φως μιας οθόνης.",
+                "t18": "Στη σημερινή εποχή της ταχύτητας και των υψηλών οπτικών απαιτήσεων, η επιλογή του ονόματος «Phos Optics» δεν ήταν μια τυχαία εμπορική απόφαση. Έγινε με βαθύ σεβασμό προς το ίδιο το φως. Για μένα, ο σεβασμός αυτός δεν εκφράζεται απλώς με λόγια, αλλά αποδεικνύεται μέσα από την ακρίβεια της δουλειάς μου. Αποτελεί τη δέσμευση ενός επαγγελματία υγείας να διαχειρίζεται την όρασή σας με τη σοβαρότητα που της αξίζει, προσφέροντας πάντα την καλύτερη, εξατομικευμένη φροντίδα.",
+                "t19": "Το «Phos» είναι η λέξη που περιγράφει την αρχή των πάντων, την αλήθεια, τη γνώση, αλλά και όλα όσα επιθυμώ να σας προσφέρω. Εκφράζει την καθαρότητα και τη φροντίδα που θέλω να χαρακτηρίζουν κάθε σας εμπειρία μέσα στο κατάστημα. Γιατί για μένα, το φως δεν είναι απλώς ένα αντικείμενο μελέτης· είναι ευθύνη. Και το Phos Optics είναι ο δικός μου τρόπος να μεταφέρω αυτή την ευθύνη σε κάθε άνθρωπο που με εμπιστεύεται. Σε κάθε μάτι ξεχωριστά.",
+                "t20": "Αυτή η αίσθηση καθήκοντος είναι η πολύτιμη παρακαταθήκη του πατέρα μου, Μιχάλη. Αν και δεν είναι πια μαζί μας, μου δίδαξε ότι η ηθική στην εργασία αποτελεί τη μοναδική βάση για να μπορείς να κοιτάς τον άλλο στα μάτια. Είναι, παράλληλα, η υπόσχεση που δίνω καθημερινά στη σύζυγο και στα παιδιά μου —το δικό μου, προσωπικό φως— που μου θυμίζουν διαρκώς γιατί αξίζει να προσπαθώ πάντα για το καλύτερο.",
+                "t21": "Στο Phos Optics, οι άνθρωποι που με πλαισιώνουν συνδυάζουν την επιστημονική κατάρτιση με την υψηλή αισθητική. Βρίσκονται εδώ για να σας καθοδηγήσουν στις σωστές επιλογές, ώστε η όρασή σας να μην είναι μόνο πεντακάθαρη, αλλά να αντικατοπτρίζει απόλυτα και την προσωπικότητά σας.",
+                "t22": "Γιατί στο Phos Optics, το φως συναντά την επιστήμη, την ιστορία και, πάνω απ' όλα, τον άνθρωπο. Σας περιμένουμε για να το ανακαλύψουμε μαζί.",
+                "t23": "Και επειδή η φροντίδα της όρασης είναι ένα ταξίδι γνώσης που δεν σταματά ποτέ, μέσα από αυτή τη σελίδα θα μοιράζομαι τακτικά μαζί σας άρθρα και συμβουλές. Σκοπός μου είναι να σας βοηθήσω να κατανοήσετε καλύτερα θέματα που αφορούν τα μάτια σας, τις νέες τεχνολογίες και όλα όσα μπορούν να κάνουν την καθημερινότητά σας πιο φωτεινή και ξεκάθαρη.",
+                "t24": "Θα χαρώ πολύ να ακολουθήσετε αυτή τη διαδρομή μαζί μου.",
+                "t25": "Νικόλας Πατέρας",
+                "t26": "Book Your Eye Exam",
+                "t27": "At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.",
+                "t28": "Book Appointment",
+                "t29": "Privacy Policy",
+                "t30": "Terms of Service",
+                "t31": "Built for Growth"
+            },
+            "ru": {
+                "t0": "Home",
+                "t1": "Clinical",
+                "t2": "Brands",
+                "t3": "Journal",
+                "t4": "Services",
+                "t5": "Contact",
+                "t6": "Book Exam",
+                "t7": "Back to Journal",
+                "t8": "Почему Phos Optics?",
+                "t9": "Автор: Николас Патерас",
+                "t10": "10 мая 2026",
+                "t11": "Один из вопросов, который мне часто задают в магазине: «Почему Phos Optics?» Ответ, возможно, не так прост, как кажется, но им определённо стоит поделиться.",
+                "t12": "Свет — это не просто физическое явление. Как оптик, я каждый день вижу, как правильное управление светом может глубоко изменить качество жизни человека. В Phos Optics мы не просто «продаём очки». Мы заботимся о самом ценном: о том средстве, через которое вы связаны со всем, что любите.",
+                "t13": "В этой статье я приглашаю вас узнать, что происходит, когда научная точность встречается с личной преданностью делу.",
+                "t14": "История света — по сути, история самого зрения. С момента Большого взрыва, когда фотоны наполнили хаос, свет начал своё вечное путешествие. С тех пор он никогда не переставал быть нашим единственным свидетелем существования мира.",
+                "t15": "Свет глубоко повлиял на человеческую мысль и, следовательно, на каждую цивилизацию — от Дальнего Востока и арабского мира до Древней Греции, Рима и, конечно, христианской традиции. В то же время и искусство, и наука всегда стремились понять и освоить его. Мы встречаем свет в поэзии, живописи, музыке, скульптуре, театре и фотографии, а кульминацией становится седьмое искусство — кино, где мы переживаем его высшее торжество.",
+                "t16": "Бесчисленные учёные посвятили свою жизнь пониманию природы света. Галилео Галилей, Леонардо да Винчи, Исаак Ньютон, Иоганн Кеплер, Джеймс Клерк Максвелл, Альберт Эйнштейн и многие другие во многом сформировали наше сегодняшнее понимание света. Теперь мы признаём его двойственную природу — как волны и частицы, — а квантовая революция показала, что свет хранит тайны, которые часто выходят за пределы здравого смысла.",
+                "t17": "Это понимание привело человечество к огромным достижениям в медицине, астрономии, коммуникациях, энергетике и повседневной жизни. В конце концов, скорее всего, вы читаете эту статью прямо сейчас благодаря свету, излучаемому экраном.",
+                "t18": "В современном быстром мире растущих зрительных нагрузок выбор названия «Phos Optics» не был случайным коммерческим решением. Он был сделан с глубоким уважением к самому свету. Для меня это уважение выражается не только словами, но и точностью моей работы. Оно отражает обязательство медицинского специалиста заботиться о вашем зрении с той серьёзностью, которой оно заслуживает, всегда предлагая лучшие персонализированные решения.",
+                "t19": "«Phos» — это слово, которое символизирует начало всего: истину, знание и всё, что я хочу вам предложить. Оно воплощает ясность и заботу, которыми я хочу наполнить каждый ваш опыт в нашем магазине. Потому что для меня свет — не просто объект изучения; это ответственность. И Phos Optics — мой способ нести эту ответственность каждому человеку, который доверяет мне своё зрение, каждому глазу индивидуально.",
+                "t20": "Это чувство долга — бесценное наследие моего отца, Михалиса. Хотя его больше нет с нами, он научил меня, что честность в работе — единственный настоящий фундамент, позволяющий смотреть людям в глаза. В то же время это обещание, которое я каждый день даю своей жене и детям — моему собственному личному свету, — которые постоянно напоминают мне, почему стоит стремиться к совершенству.",
+                "t21": "В Phos Optics люди, которые работают рядом со мной, сочетают научную экспертизу с изысканной эстетикой. Они здесь, чтобы помочь вам сделать правильный выбор, чтобы ваше зрение было не только кристально чистым, но и настоящим отражением вашей личности.",
+                "t22": "Потому что в Phos Optics свет встречается с наукой, историей и, прежде всего, с человеческим подходом. Мы будем рады приветствовать вас и открыть это вместе.",
+                "t23": "И поскольку забота о глазах — это путь знаний, который никогда по-настоящему не заканчивается, на этой странице я буду регулярно делиться статьями и советами. Моя цель — помочь вам лучше понимать темы, связанные с вашими глазами, новыми технологиями и всем, что может сделать вашу повседневную жизнь светлее и яснее.",
+                "t24": "Мне было бы искренне приятно, если бы вы присоединились ко мне в этом путешествии.",
+                "t25": "Николас Патерас",
+                "t26": "Book Your Eye Exam",
+                "t27": "At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.",
+                "t28": "Book Appointment",
+                "t29": "Privacy Policy",
+                "t30": "Terms of Service",
+                "t31": "Built for Growth"
+            }
+        };
+        const languageButtons = document.querySelectorAll('[data-language-option]');
+        const pageTitle = {
+            "en": "Optician in Limassol | Clinical Eye Care at Phós Optics",
+            "el": "Οπτικός στη Λεμεσό | Κλινική Φροντίδα Όρασης στο Phós Optics",
+            "ru": "Оптик в Лимассоле | Клинический уход за зрением в Phós Optics"
+        };
+        const pageDescription = {
+            "en": "Looking for a trusted optician in Limassol? Discover why clinical eye care, advanced diagnostics, and precise frame fitting matter at Phós Optics in Kolonakiou.",
+            "el": "Ψάχνετε έναν αξιόπιστο οπτικό στη Λεμεσό; Ανακαλύψτε γιατί η κλινική φροντίδα όρασης, οι προηγμένες διαγνώσεις και η ακριβής εφαρμογή σκελετών έχουν σημασία στο Phós Optics στην Κολωνακίου.",
+            "ru": "Ищете надёжного оптика в Лимассоле? Узнайте, почему клинический уход за зрением, современная диагностика и точная подгонка оправ важны в Phós Optics на Колонакиу."
+        };
+        const languageLabels = {
+            en: 'English',
+            el: 'Greek',
+            ru: 'Russian'
+        };
+
+        function setLanguage(language) {
+            const selectedLanguage = languageText[language] ? language : 'en';
+            document.documentElement.lang = selectedLanguage;
+            document.title = pageTitle[selectedLanguage];
+
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+                metaDescription.setAttribute('content', pageDescription[selectedLanguage]);
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                element.textContent = languageText[selectedLanguage][key] || languageText.en[key] || element.textContent;
+            });
+
+            languageButtons.forEach(button => {
+                const isActive = button.dataset.languageOption === selectedLanguage;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-label', `Translate page to ${languageLabels[button.dataset.languageOption]}`);
+                button.setAttribute('title', `Translate page to ${languageLabels[button.dataset.languageOption]}`);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+
+            localStorage.setItem('phos-language', selectedLanguage);
+        }
+
+        languageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setLanguage(button.dataset.languageOption);
+            });
+        });
+
+        setLanguage(localStorage.getItem('phos-language') || 'en');
     </script>
 </body>
 
