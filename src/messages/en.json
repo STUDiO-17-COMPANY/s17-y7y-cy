@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "home": {
+      "title": "Phós Optics | Science Meets Luxury",
+      "description": "Contemporary vision care in Limassol. Discover curated luxury frames and precision clinical optometry by Nikolas Pateras."
+    },
+    "brands": {
+      "title": "Our Brands | Phós Optics Limassol",
+      "description": "A curated portfolio of the world's finest eyewear houses, fitted with precision at Phós Optics in Limassol, Cyprus."
+    },
+    "journal": {
+      "title": "The Journal | Phós Optics",
+      "description": "Notes on vision, eyewear and the craft behind clear sight, from the team at Phós Optics in Limassol."
+    },
+    "contact": {
+      "title": "Contact | Phós Optics Limassol",
+      "description": "Call, email or visit Phós Optics in Agios Athanasios, Limassol. Opening hours, directions and online booking for eye examinations and eyewear."
+    }
+  },
+  "nav": {
+    "services": "Services",
+    "about": "Optometry",
+    "brands": "Brands",
+    "journal": "Journal",
+    "contact": "Contact",
+    "book": "Call & Book",
+    "bookExam": "Book Exam",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "line1": "Combining the",
+    "line2": "science of Optometry with Luxury.",
+    "intro": "Phós Optics provides vision care that is contemporary, considered, and always on trend.",
+    "location": "Limassol • Cyprus",
+    "cta": "Book Examination",
+    "scroll": "Scroll to Explore"
+  },
+  "about": {
+    "eyebrow": "Optometry",
+    "title": "The Person Behind Phós",
+    "body": "For Nikolas Pateras, optics goes beyond a profession. As the founder and lead optometrist at Phós, he brings his strong background in Optometry and years of practical experience. Phós Optics was created as a modern optical space where science meets design. Where the approach for eye care is done with precision, attention to detail, and a deep understanding of individual needs.",
+    "quote": "“Through Phós (greek: φώς, meaning: light) the goal is simple: see better, feel better, and express effortlessly.”",
+    "quoteAuthor": "Nikolas"
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "title": "Vision Care & Eyewear",
+    "tagline": "Refined inclusivity. Precision meets care.",
+    "cta": "Call & Book",
+    "exam": {
+      "title": "Eye Examination",
+      "desc": "Comprehensive assessment of visual acuity and eye health using advanced diagnostics for every age.",
+      "features": ["Myopia", "Hyperopia", "Astigmatism", "Presbyopia", "Orthoptics", "Myopia Control"]
+    },
+    "frames": {
+      "title": "Optical Frames & Lenses",
+      "desc": "Curated with intention. Contemporary prescription glasses and sunglasses fitted with premium lenses.",
+      "features": ["Luxury Brands", "Prescription Sun"],
+      "brandsLabel": "Available optical lens brands"
+    },
+    "contacts": {
+      "title": "Contact Lenses",
+      "desc": "Fitting and supply of high-quality contact lenses for daily use, astigmatism, and multifocal needs.",
+      "features": ["Fitting Services", "Monthly / Daily", "Always available the below contact lens brands"],
+      "brandsLabel": "Available contact lens brands"
+    }
+  },
+  "marquee": {
+    "eyebrow": "Featured Brands",
+    "title": "Luxury names we trust",
+    "desc": "A curated selection of optical, fashion, and lens partners chosen for quality, comfort, and design."
+  },
+  "reviews": {
+    "eyebrow": "Patient Stories",
+    "title": "Trusted by Limassol's Finest",
+    "readMore": "Read More",
+    "readLess": "Read Less",
+    "source": "Google Review",
+    "prev": "Previous review",
+    "next": "Next review"
+  },
+  "journal": {
+    "eyebrow": "Editorial",
+    "title": "The Journal",
+    "intro": "Notes on vision, eyewear and the craft behind clear sight.",
+    "readStory": "Read Story",
+    "backToJournal": "Back to Journal",
+    "by": "By",
+    "share": "Share"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for has moved or no longer exists.",
+    "cta": "Back to home"
+  },
+  "philosophy": {
+    "title": "Light: phosgene. Φώς",
+    "subtitle": "[From Greek phos, light;]",
+    "body": "Inspired by nature, focused on clarity. We keep the dash above the letter O to preserve its authentic Greek pronunciation. Vision is medical. Style is personal. At Phos Optics we excel at both."
+  },
+  "contact": {
+    "title": "Experience Phós Optics",
+    "body": "At Phós Optics we cut lenses in-house, making the turn around time significantly faster and accurate based on each prescription and its severity.",
+    "book": "Book Appointment",
+    "addressLabel": "Address",
+    "getDirections": "Get Directions",
+    "hoursLabel": "Hours",
+    "hours": {
+      "weekdays": "Monday – Friday: 09:30 – 19:00",
+      "wednesday": "Wednesday: 09:00 – 14:00",
+      "saturday": "Saturday: 09:30 – 17:30",
+      "sunday": "Sunday: Closed"
+    },
+    "hoursNote": "The Optician's schedule may vary. If you need to book an eyetest please give us a call ahead.",
+    "openMaps": "Open in Google Maps"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "builtForGrowth": "Built for Growth"
+  },
+  "brandsPage": {
+    "eyebrow": "House Portfolio",
+    "title": "Our Brands",
+    "intro": "A curated portfolio of the world's finest eyewear houses, fitted with precision at Phós Optics in Limassol.",
+    "tier1": "The Iconic Houses",
+    "tier2": "Curated Selection",
+    "tier3": "The Classics",
+    "cta": "Book a Styling Session",
+    "ctaTitle": "Find Your Perfect Frame",
+    "ctaBody": "Book a personal styling session and let us guide you to the frame that fits your face, your prescription, and your style."
+  },
+  "contactPage": {
+    "eyebrow": "Get in Touch",
+    "title": "Let's talk",
+    "intro": "Booking an eye examination or choosing your next frame — we're here in Limassol to help. Reach us directly, or visit the studio in Agios Athanasios.",
+    "channelsLabel": "Direct lines",
+    "callLabel": "Call the studio",
+    "callNote": "Mon–Sat, within opening hours",
+    "bookLabel": "Book online",
+    "bookValue": "Open the scheduler",
+    "bookNote": "Reserve a time that suits you",
+    "emailLabel": "Email us",
+    "emailNote": "We reply within one business day",
+    "followLabel": "Follow along",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "visitLabel": "Visit the studio",
+    "scheduleLabel": "Opening hours",
+    "schedule": {
+      "main": { "days": "Mon · Tue · Thu · Fri", "time": "09:30 — 19:00" },
+      "wednesday": { "days": "Wednesday", "time": "09:00 — 14:00" },
+      "saturday": { "days": "Saturday", "time": "09:30 — 17:30" },
+      "sunday": { "days": "Sunday", "time": "Closed" }
+    }
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "el": "Ελληνικά",
+    "ru": "Русский"
+  }
+}
