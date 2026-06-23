@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Base reset & smoothness (ported from legacy/index.html <style>)
+   ============================================================ */
+body {
+  background-color: #f6f6f3;
+  color: #000000;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Anchor offset for the fixed navbar */
+#about,
+#contact,
+#services,
+#journal,
+#reviews {
+  scroll-margin-top: 140px;
+}
+
+/* Text selection */
+::selection {
+  background: #989e85; /* Phós Sage */
+  color: #ffffff;
+}
+
+/* Hide scrollbar but allow scroll (reviews track) */
+.reviews-track {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   Lenis smooth-scroll
+   ============================================================ */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ============================================================
+   Image mask reveals
+   ============================================================ */
+.reveal-image-container {
+  overflow: hidden;
+}
+.reveal-image {
+  transform: scale(1.2);
+  will-change: transform;
+}
+
+/* ============================================================
+   Custom cursor follower
+   ============================================================ */
+.cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    background-color 0.3s;
+}
+.hover-active .cursor-dot {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #989e85; /* Sage border on hover */
+  backdrop-filter: invert(0);
+}
+
+/* ============================================================
+   Loader — brand intro (focus pull + aperture iris), all pages
+   ============================================================ */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: #f6f6f3;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Aperture starts wide open (full overlay); GSAP closes it on exit. */
+  clip-path: circle(150% at 50% 50%);
+}
+.loader-mark {
+  /* Initial out-of-focus state, painted on first server render so the
+     wordmark never flashes sharp before GSAP takes over. */
+  opacity: 0;
+  filter: blur(16px);
+  transform: scale(1.25);
+  will-change: transform, filter, opacity;
+}
+.loader-logo {
+  display: block;
+  width: clamp(150px, 24vw, 240px);
+  height: auto;
+}
+.loader-logo path {
+  fill: #231f20; /* Logotype ink, matching the hosted asset */
+}
+
+/* ============================================================
+   Mobile menu overlay
+   ============================================================ */
+.mobile-menu-overlay {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.mobile-menu-open .mobile-menu-overlay,
+.mobile-menu-overlay.is-open {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ============================================================
+   Typography & logo sizing
+   ============================================================ */
+.font-wide {
+  letter-spacing: -0.02em;
+}
+.site-logo {
+  height: 4rem;
+  max-height: 80px;
+  width: auto;
+}
+@media (min-width: 768px) {
+  .site-logo {
+    height: 5rem;
+  }
+}
+
+/* ============================================================
+   Brand marquee
+   ============================================================ */
+@keyframes brand-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.brand-marquee {
+  animation: brand-marquee 28s linear infinite;
+  will-change: transform;
+}
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+.brand-logo {
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: all 0.3s ease;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.brand-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   Maintenance page graphic (isolated page)
+   ============================================================ */
+@keyframes slow-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.maint-graphic svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: slow-spin 140s linear infinite;
+}
+
+/* ============================================================
+   Location map marker (contact page)
+   ============================================================ */
+.phos-map-marker {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.phos-map-marker::before {
+  /* Pulsing ring, painted behind the dot */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(152, 158, 133, 0.55); /* Phós Sage */
+  animation: phos-marker-pulse 2.4s ease-out infinite;
+}
+.phos-map-marker::after {
+  /* Solid dot with cream ring, painted on top */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #989e85; /* Phós Sage */
+  border: 2px solid #f6f6f3; /* Phós Cream core */
+  box-shadow:
+    0 0 12px 2px rgba(152, 158, 133, 0.7),
+    0 2px 8px rgba(0, 0, 0, 0.55);
+}
+@keyframes phos-marker-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   Reduced motion: disable ambient animation
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee {
+    animation: none;
+  }
+  .phos-map-marker::before {
+    animation: none;
+  }
+  .mobile-menu-overlay {
+    transition: none;
+  }
+  .maint-graphic svg {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
